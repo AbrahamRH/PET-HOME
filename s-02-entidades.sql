@@ -11,15 +11,6 @@
 		- Uso de columnas virtuales
 */
 
-/*Secuencias*/
-create sequence centro_operativo_seq
-	start with 0
-	increment by 1
-	nominvalue
-	nomaxvalue
-	noorder;
-
-
 -- CENTRO_OPERATIVO
 create table centro_operativo
 (
