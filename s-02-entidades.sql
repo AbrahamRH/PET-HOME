@@ -231,7 +231,7 @@ create table donativo(
 -- REVISION_ADOPCION
 create table revision_adopcion(
 	mascota_id 	 	 number(10,0)  not null,
-	num_revision   number(10,0)  not null,
+	num_revision   generated always as identity,
 	fecha_revision date  default  sysdate not null,
 	calificacion   number(2,0)   not null,
 	costo_revision number(10,2)  not null,
