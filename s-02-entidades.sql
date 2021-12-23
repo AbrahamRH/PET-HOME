@@ -9,6 +9,29 @@
 		- Uso de columnas virtuales
 */
 
+-- EMPLEADO
+create table empleado 
+(
+	empleado_id 	    	number(10,0) not null,
+	nombre 			      	varchar2(40) not null,
+	apellido_paterno  	varchar2(40) not null,
+	apellido_materno  	varchar2(40) not null,
+	curp 			        	varchar2(18) not null,
+	fecha_ingreso 	  	date 		     not null,
+	email 		      		varchar2(40) not null,
+	sueldo 			      	number(8,2)  not null,
+	es_gerente 		    	number(1,0)  not null,
+	es_administrativo   number(1,0)  not null,
+	es_veterinario 	  	number(1,0)  not null,
+
+	constraint empleado_pk primary key(empleado_id),
+	constraint empleado_curp_uk unique(curp),
+	constraint centro_operativo_empleado_rol_chk check(
+		(es_administrativo = 0 or es_administrativo = 1) and (es_gerente = 1 
+		or es_gerente = 0) and (es_veterinario  = 0 or es_veterinario = 1)
+	)
+);
+
 -- CENTRO_OPERATIVO
 create table centro_operativo
 (
@@ -29,48 +52,16 @@ create table centro_operativo
 	and (es_oficina = 1 or es_oficina =  0) and (es_clinica = 0 or es_clinica = 1)),
 	constraint centro_operativo_clinica_refugio_chk check(
 		(es_oficina = 0 and (es_clinica = 1 or es_refugio = 1)) or
-		(es_oficina = 1 and (es_clinina = 0 or es_refugio = 0))),
+		(es_oficina = 1 and (es_clinica = 0 or es_refugio = 0))),
 	constraint centro_operativo_gerente_id_fk foreign key(gerente_id)
 		references empleado(empleado_id)
 );
 
--- EMPLEADO
-create table empleado 
-(
-	empleado_id 	    	number(10,0) not null,
-	nombre 			      	varchar2(40) not null,
-	apellido_paterno  	varchar2(40) not null,
-	apellido_materno  	varchar2(40) not null,
-	curp 			        	varchar2(18) not null,
-	fecha_ingreso 	  	date 		     not null,
-	email 		      		varchar2(40) not null,
-	sueldo 			      	number(8,2)  not null,
-	es_gerente 		    	number(1,0)  not null,
-	es_administrativo   number(1,0)  not null,
-	es_veterinario 	  	number(1,0)  not null,
-	grado_academico_id  number(10,0) not null,
-
-	constraint empleado_pk primary key(empleado_id),
-	constraint empleado_curp_uk unique(curp),
-	constraint empleado_grado_academico_id_fk foreign key(grado_academico_id)
-		references grado_academico(grado_academico_id)
-	constraint centro_operativo_rol_ chk check(
-		(es_administrativo = 0 or es_administrativo = 1) and (es_gerente = 1 
-		or es_gerente = 0) and (es_veterinario  = 0 or es_veterinario = 1)
-	)
-);
-
--- GRADO_ACADEMICO
-create table grado_academico(
-	grado_academico_id  number(10,0) not null,
-	titulo 			        varchar2(40) not null,
-	fecha_titulacion    date  		   not null,
-	cedula_profesional  varchar2(20) not null,
-	empleado_id 	      number(10,0) not null,
-	constraint grado_academico_pk primary key(grado_academico_id),
-	constraint grado_academico_cedula_profesional_uk unique(cedula_profesional)
-	constraint grado_academico_empleado_id_fk foreign key(empleado_id)
-		references empleado(empleado_id)
+-- DIRECCION_WEB
+create table direccion_web(
+	direccion_web_id number(10,0) not null,
+	dominio_url 		 varchar2(40) not null,
+	constraint direccion_web_pk primary key(direccion_web_id)
 );
 
 -- REFUGIO
@@ -82,7 +73,7 @@ create table refugio
 	lema  							varchar2(40) not null,
 	direccion_web_id 		number(10,0) not null,
 	refugio_alterno_id  number(10,0) not null,
-	constraint refugio_pk primary key(centro_operativo_id).
+	constraint refugio_pk primary key(centro_operativo_id),
 	constraint refugio_registro_uk unique(numero_de_registro),
 	constraint centro_operativo_id_fk foreign key(centro_operativo_id)
 		references centro_operativo(centro_operativo_id),
@@ -113,16 +104,46 @@ create table clinica(
 	hora_fin 						date 				 not null,
 	telefono_atencion   varchar2(10) not null,
 	telefono_emergencia varchar2(10) not null,
-	constraint clinica_pk primary key(centro_operativo_id)
+	constraint clinica_pk primary key(centro_operativo_id),
 	constraint clinica_centro_operativo_id_fk foreign key(centro_operativo_id)
 		references centro_operativo(centro_operativo_id)
 );
 
--- DIRECCION_WEB
-create table direccion_web(
-	direccion_web_id number(10,0) not null,
-	dominio_url 		 varchar2(40) not null,
-	constraint direccion_web_pk primary key(direccion_web_id)
+-- ESTATUS_MASCOTA
+create table estatus_mascota(
+	estatus_mascota_id number(10,0) constraint estatus_mascota_pk primary key,
+	descripcion 			 varchar2(40) not null
+);
+
+-- TIPO_MASCOTA
+create table tipo_mascota(
+	tipo_mascota_id  number(10,0) not null,
+	nombre_tipo   	 varchar2(40) not null,
+	nivel_cuidado 	 number(1,0)  not null,
+	constraint tipo_mascota_pk primary key(tipo_mascota_id),
+	constraint tipo_mascota_nivel_cuidado_chk check(
+		nivel_cuidado >= 1 and nivel_cuidado <= 5
+	)
+);
+
+-- ORIGEN 
+create table origen(
+	origen_id   number(10,0) constraint origen_pk primary key,
+	descripcion varchar2(40) not null
+);
+
+-- CLIENTE
+create table cliente(
+	cliente_id 	number(10,0) not null,
+	nombre 			varchar2(40) not null,
+	ap_paterno  varchar2(40) not null,
+	ap_materno  varchar2(40) not null,
+	direccion   varchar2(40) not null,
+	ocupacion   varchar2(40) not null,
+	usuario     varchar2(40) not null,
+	password    varchar2(40) not null,
+	constraint cliente_pk primary key(cliente_id),
+	constraint cliente_usuario_uk unique(usuario)
 );
 
 -- MASCOTA
@@ -156,11 +177,11 @@ create table mascota(
 	constraint mascota_donador_id_fk foreign key(donador_id)
 		references cliente(cliente_id),
 	constraint mascota_mascota_padre_id_fk foreign key(mascota_padre_id)
-		references mascota(mascota_id)
+		references mascota(mascota_id),
 	constraint mascota_mascota_madre_id_fk foreign key(mascota_madre_id)
-		references mascota(mascota_id)
-	constraint mascota_centro_nacimiento_id_fk foreign key(centro_operativo_id)
-		references centro_operativo(centro_operativo_id)
+		references mascota(mascota_id),
+	constraint mascota_centro_nacimiento_id_fk foreign key(centro_nacimiento_id)
+		references centro_operativo(centro_operativo_id),
 	constraint mascota_origen_id_fk foreign key (origen_id)
 		references origen(origen_id)
 );
@@ -178,31 +199,6 @@ create table historico_status_mascota(
 	constraint historico_mascota_id_fk foreign key(mascota_id)
 		references mascota(mascota_id)
 );
-
--- ESTATUS_MASCOTA
-create table estatus_mascota(
-	estatus_mascota_id number(10,0) constraint estatus_mascota_pk primary key,
-	descripcion 			 varchar2(40) not null,
-);
-
-
--- ORIGEN 
-create table origen(
-	origen_id   number(10,0) constraint origen_pk primary key,
-	descripcion varchar2(40) not null,
-);
-
--- TIPO_MASCOTA
-create table tipo_mascota(
-	tipo_mascota_id  number(10,0) not null,
-	nombre_tipo   	 varchar2(40) not null,
-	nivel_cuidado 	 number(1,0)  not null,
-	constraint tipo_mascota_pk primary key(tipo_mascota_id),
-	constraint tipo_mascota_nivel_cuidado_chk check(
-		nivel_cuidado >= 1 and nivel_cuidado <= 5
-	)
-);
-
 -- ADOPCION
 create table adopcion(
 	adopcion_id 	  		number(10,0)  not null,
@@ -213,26 +209,12 @@ create table adopcion(
 	mascota_id 				  number(10,0)  not null,
 	constraint adopcion_pk primary key(adopcion_id),
 	constraint adopcion_cliente_id_fk foreign key(cliente_id)
-		references cliente(cliente_id)
+		references cliente(cliente_id),
 	constraint adopcion_mascota_id_fk foreign key(mascota_id)
-		references mascota(mascota_id)
+		references mascota(mascota_id),
 		constraint adopcion_es_ganador_chk check( 
 			es_ganador = 0 or es_ganador = 1
 		)
-);
-
--- CLIENTE
-create table cliente(
-	cliente_id 	number(10,0) not null,
-	nombre 			varchar2(40) not null,
-	ap_paterno  varchar2(40) not null,
-	ap_materno  varchar2(40) not null,
-	direccion   varchar2(40) not null,
-	ocupacion   varchar2(40) not null,
-	usuario     varchar2(40) not null,
-	password    varchar2(40) not null,
-	constraint cliente_pk primary key(cliente_id),
-	constraint cliente_usuario_uk unique(usuario)
 );
 
 -- DONATIVO
@@ -259,11 +241,11 @@ create table revision_adopcion(
 	constraint revision_adopcion_pk primary key(mascota_id, num_revision),
 	constraint revision_adopcion_calificacion_chk check(
 		calificacion >= 1 and calificacion <= 10
-	)
-	constraint revision_adopcion_cliente_id_fk foreign key(cliente_id),
+	),
+	constraint revision_adopcion_cliente_id_fk foreign key(cliente_id)
 		references cliente(cliente_id),
 	constraint revision_adopcion_centro_id_fk foreign key(centro_operativo_id)
-		references centro_operativo(centro_operativo_id),
+		references centro_operativo(centro_operativo_id)
 );
 
 -- REVISION_MASCOTA
