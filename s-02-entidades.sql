@@ -18,8 +18,8 @@ create table centro_operativo
 	centro_operativo_id number(10,0)  not null,
 	direccion 	        varchar2(100) not null,
 	nombre 		          varchar2(40)  not null,
-	latitud 		      	numeric(4,1)  not null,
-	longitud 		      	numeric(4,1)  not null,
+	latitud 		      	number(4,1)  not null,
+	longitud 		      	number(4,1)  not null,
 	codigo 				      varchar2(5)   not null,
 	es_refugio 		     	number(1,0)   not null,
 	es_clinica 		    	number(1,0)   not null,
@@ -122,7 +122,47 @@ create table clinica(
 -- DIRECCION_WEB
 create table direccion_web(
 	direccion_web_id number(10,0) not null,
-	dominio_url 		 varchar(40)  not null,
+	dominio_url 		 varchar2(40)  not null,
 	constraint direccion_web_pk primary key(direccion_web_id)
 );
 
+-- MASCOTA
+create table mascota(
+	mascota_id 		      	number(10,0) not null,
+	nombre  	 		     	  varchar2(40) not null,
+	folio 				     	  varchar2(8)  not null,
+	fecha_ingreso      	  date  default sysdate,
+	fecha_estatus      	  date 			   not null,
+	fecha_nacimiento   	  date 			   not null,
+	causa_muerte 		   	  varchar2(40) not null,
+  fecha_adopcion     	  date 				 null,
+	estatus_mascota_id  	number(10,0) not null,
+	tipo_mascota_id 	  	number(10,0) not null,
+	centro_operativo_id 	number(10,0) not null,
+	origen_id 						number(10,0) not null,
+	cliente_id 				  	number(10,0) null,
+	donador_id 			  	  number(10,0) null,
+	mascota_padre_id  	  number(10,0) null,
+	mascota_madre_id      number(10,0) null,
+	centro_nacimiento_id  number(10,0) null,
+	constraint mascota_pk primary key(mascota_id),
+	constraint mascota_folio_uk unique(folio),
+	constraint mascota_estatus_id_fk foreign key(estatus_mascota_id)
+		references estatus_mascota(estatus_mascota_id),
+	constraint mascota_tipo_mascota_id_fk foreign key(tipo_mascota_id) 
+		references tipo_mascota(tipo_mascota_id),
+	constraint mascota_centro_operativo_id_fk foreign key(centro_operativo_id)
+		references centro_operativo(centro_operativo_id),
+	constraint mascota_cliente_id_fk foreign key(cliente_id)
+		references cliente(cliente_id),
+	constraint mascota_donador_id_fk foreign key(donador_id)
+		references cliente(cliente_id),
+	constraint mascota_mascota_padre_id_fk foreign key(mascota_padre_id)
+		references mascota(mascota_id)
+	constraint mascota_mascota_madre_id_fk foreign key(mascota_madre_id)
+		references mascota(mascota_id)
+	constraint mascota_centro_nacimiento_id_fk foreign key(centro_operativo_id)
+		references centro_operativo(centro_operativo_id)
+	constraint mascota_origen_id_fk foreign key (origen_id)
+		references origen(origen_id)
+);
