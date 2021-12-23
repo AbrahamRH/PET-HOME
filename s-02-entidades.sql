@@ -7,7 +7,7 @@
 	TODO: 
 		- Creación de las tablas restantes
 			tablas actuales: centro_operativo, empleado, grado_academico, refugio
-				oficina, clinica
+				oficina, clinica, direccion_web,
 		- Uso de default
 		- Uso de columnas virtuales
 */
@@ -28,7 +28,7 @@ create table centro_operativo
 
 	constraint centro_operativo_pk primary key(centro_operativo_id),
 	constraint centro_operativo_uk unique(codigo),
-	constraint centro_operativo_rol_ chk check(es_refugio between (0,1)
+	constraint centro_operativo_rol_chk check(es_refugio between (0,1)
 		  and es_oficina between (1,0) and es_clinica between (0,1)),
 	constraint centro_operativo_clinica_refugio_chk check(
 		(es_oficina = 0 and (es_clinica = 1 or es_refugio = 1)) or
@@ -118,3 +118,11 @@ create table clinica(
 	constraint clinica_centro_operativo_id_fk foreign key(centro_operativo_id)
 		references centro_operativo(centro_operativo_id)
 );
+
+-- DIRECCION_WEB
+create table direccion_web(
+	direccion_web_id number(10,0) not null,
+	dominio_url 		 varchar(40)  not null,
+	constraint direccion_web_pk primary key(direccion_web_id)
+);
+
