@@ -25,8 +25,8 @@ create table centro_operativo
 
 	constraint centro_operativo_pk primary key(centro_operativo_id),
 	constraint centro_operativo_uk unique(codigo),
-	constraint centro_operativo_rol_chk check(es_refugio between (0 and 1)
-		  and es_oficina between (1 and 0) and es_clinica between (0 and 1)),
+	constraint centro_operativo_rol_chk check((es_refugio = 0 or es_refugio = 1)
+	and (es_oficina = 1 or es_oficina =  0) and (es_clinica = 0 or es_clinica = 1)),
 	constraint centro_operativo_clinica_refugio_chk check(
 		(es_oficina = 0 and (es_clinica = 1 or es_refugio = 1)) or
 		(es_oficina = 1 and (es_clinina = 0 or es_refugio = 0))),
@@ -54,8 +54,10 @@ create table empleado
 	constraint empleado_curp_uk unique(curp),
 	constraint empleado_grado_academico_id_fk foreign key(grado_academico_id)
 		references grado_academico(grado_academico_id)
-	constraint centro_operativo_rol_ chk check(es_administrativo between (0 and 1)
-		and es_gerente between (1 and 0) and es_veterinario between (0 and 1))
+	constraint centro_operativo_rol_ chk check(
+		(es_administrativo = 0 or es_administrativo = 1) and (es_gerente = 1 
+		or es_gerente = 0) and (es_veterinario  = 0 or es_veterinario = 1)
+	)
 );
 
 -- GRADO_ACADEMICO
@@ -197,7 +199,7 @@ create table tipo_mascota(
 	nivel_cuidado 	 number(1,0)  not null,
 	constraint tipo_mascota_pk primary key(tipo_mascota_id),
 	constraint tipo_mascota_nivel_cuidado_chk check(
-		nivel_cuidado between(1 and 5)
+		nivel_cuidado >= 1 and nivel_cuidado <= 5
 	)
 );
 
@@ -215,7 +217,7 @@ create table adopcion(
 	constraint adopcion_mascota_id_fk foreign key(mascota_id)
 		references mascota(mascota_id)
 		constraint adopcion_es_ganador_chk check( 
-			es_ganador between(0 and 1)
+			es_ganador = 0 or es_ganador = 1
 		)
 );
 
@@ -256,7 +258,7 @@ create table revision_adopcion(
 	centro_operativo_id number(10,0) not null,
 	constraint revision_adopcion_pk primary key(mascota_id, num_revision),
 	constraint revision_adopcion_calificacion_chk check(
-		calificacion between (1 to 10)
+		calificacion >= 1 and calificacion <= 10
 	)
 	constraint revision_adopcion_cliente_id_fk foreign key(cliente_id),
 		references cliente(cliente_id),
