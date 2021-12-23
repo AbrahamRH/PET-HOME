@@ -6,6 +6,7 @@ Prompt Conectandose como sysdba
 connect sys as sysdba
 
 set serveroutput on 
+set sqlblanklines on
 
 Prompt Validando la existencia de los usuarios
 declare
@@ -18,6 +19,8 @@ begin
 		dbms_output.put_line('Eliminando usuarios existentes');
 		execute immediate 'drop user rj_proy_admin cascade';
 		execute immediate 'drop user rj_proy_invitado cascade';
+		execute immediate 'drop role rol_admin';
+		execute immediate 'drop role rol_invitado';
 	end if;
 end;
 /
