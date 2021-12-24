@@ -8,6 +8,26 @@
 		- Uso de default
 		- Uso de columnas virtuales
 */
+-- CENTRO_OPERATIVO
+create table centro_operativo
+(
+	centro_operativo_id number(10,0)  not null,
+	direccion 	        varchar2(100) not null,
+	nombre 		          varchar2(40)  not null,
+	latitud 		      	number(4,1)   not null,
+	longitud 		      	number(4,1)   not null,
+	codigo 				      varchar2(5)   not null,
+	es_refugio 		     	number(1,0)   not null,
+	es_clinica 		    	number(1,0)   not null,
+	es_oficina 	    		number(1,0)   not null,
+	constraint centro_operativo_pk primary key(centro_operativo_id),
+	constraint centro_operativo_uk unique(codigo),
+	constraint centro_operativo_rol_chk check((es_refugio = 0 or es_refugio = 1)
+	and (es_oficina = 1 or es_oficina =  0) and (es_clinica = 0 or es_clinica = 1)),
+	constraint centro_operativo_clinica_refugio_chk check(
+		(es_oficina = 0 and (es_clinica = 1 or es_refugio = 1)) or
+		(es_oficina = 1 and (es_clinica = 0 or es_refugio = 0)))
+);
 
 -- EMPLEADO
 create table empleado 
@@ -23,38 +43,13 @@ create table empleado
 	es_gerente 		    	number(1,0)  not null,
 	es_administrativo   number(1,0)  not null,
 	es_veterinario 	  	number(1,0)  not null,
-
+	centro_operativo_id number(10,0) not null,
 	constraint empleado_pk primary key(empleado_id),
 	constraint empleado_curp_uk unique(curp),
 	constraint centro_operativo_empleado_rol_chk check(
 		(es_administrativo = 0 or es_administrativo = 1) and (es_gerente = 1 
 		or es_gerente = 0) and (es_veterinario  = 0 or es_veterinario = 1)
 	)
-);
-
--- CENTRO_OPERATIVO
-create table centro_operativo
-(
-	centro_operativo_id number(10,0)  not null,
-	direccion 	        varchar2(100) not null,
-	nombre 		          varchar2(40)  not null,
-	latitud 		      	number(4,1)   not null,
-	longitud 		      	number(4,1)   not null,
-	codigo 				      varchar2(5)   not null,
-	es_refugio 		     	number(1,0)   not null,
-	es_clinica 		    	number(1,0)   not null,
-	es_oficina 	    		number(1,0)   not null,
-	gerente_id 	    		number(10,0)  not null,
-
-	constraint centro_operativo_pk primary key(centro_operativo_id),
-	constraint centro_operativo_uk unique(codigo),
-	constraint centro_operativo_rol_chk check((es_refugio = 0 or es_refugio = 1)
-	and (es_oficina = 1 or es_oficina =  0) and (es_clinica = 0 or es_clinica = 1)),
-	constraint centro_operativo_clinica_refugio_chk check(
-		(es_oficina = 0 and (es_clinica = 1 or es_refugio = 1)) or
-		(es_oficina = 1 and (es_clinica = 0 or es_refugio = 0))),
-	constraint centro_operativo_gerente_id_fk foreign key(gerente_id)
-		references empleado(empleado_id)
 );
 
 -- DIRECCION_WEB
@@ -231,7 +226,7 @@ create table donativo(
 -- REVISION_ADOPCION
 create table revision_adopcion(
 	mascota_id 	 	 number(10,0)  not null,
-	num_revision   generated always as identity,
+	num_revision   number(10,0) generated always as identity,
 	fecha_revision date  default  sysdate not null,
 	calificacion   number(2,0)   not null,
 	costo_revision number(10,2)  not null,
