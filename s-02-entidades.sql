@@ -52,13 +52,6 @@ create table empleado
 	)
 );
 
--- DIRECCION_WEB
-create table direccion_web(
-	direccion_web_id number(10,0) not null,
-	dominio_url 		 varchar2(40) not null,
-	constraint direccion_web_pk primary key(direccion_web_id)
-);
-
 -- REFUGIO
 create table refugio
 (
@@ -66,15 +59,22 @@ create table refugio
 	numero_de_registro  varchar2(8)  not null,
 	logo 								blob 				 not null,
 	lema  							varchar2(40) not null,
-	direccion_web_id 		number(10,0) not null,
 	refugio_alterno_id  number(10,0) not null,
 	constraint refugio_pk primary key(centro_operativo_id),
 	constraint refugio_registro_uk unique(numero_de_registro),
 	constraint centro_operativo_id_fk foreign key(centro_operativo_id)
 		references centro_operativo(centro_operativo_id),
-	constraint refugio_direccion_web_id_fk foreign key(direccion_web_id)
-		references direccion_web(direccion_web_id),
 	constraint refugio_refugio_alterno_id_fk foreign key(refugio_alterno_id)
+		references refugio(centro_operativo_id)
+);
+
+-- DIRECCION_WEB
+create table direccion_web(
+	direccion_web_id number(10,0) not null,
+	dominio_url 		 varchar2(40) not null,
+	centro_operativo_id number(10,0) not null,
+	constraint direccion_web_pk primary key(direccion_web_id),
+	constraint direccion_web_centro_operativo_id_fk foreign key(centro_operativo_id)
 		references refugio(centro_operativo_id)
 );
 
