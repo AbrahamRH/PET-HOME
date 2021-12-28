@@ -1,0 +1,4 @@
+--@autor:           Abraham Ramírez Hernández
+--@Fecha creación:  2021-12-28
+--@Descripción:     (s-10-consultas) - Script que contiene consultas 
+-- 									a nuestra base de datos
