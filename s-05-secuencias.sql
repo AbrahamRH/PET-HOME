@@ -1,120 +1,116 @@
---@autor:           Juárez Pérez Hugo
+--@autor:           Abraham Ramírez Hernández
 --@Fecha creación:  2021-12-28
---@Descripción:     Script para realizar la carga inicial todas las tablas de la base de datos.ABORT
-
---TODO:
---Llenar con datos de mockaroo xd
-
-create sequence adopcion_seq
-  start with 101
-  increment by 1
-  nominvalue
-  nomaxvalue
-  cache 20
-  noorder
-;
-
-create sequence centro_operativo_seq
-  start with 5
-  increment by 1
-  nominvalue
-  maxvalue 10    --NO queremos mas de 10 C.O por ahora
-  cache 20
-  noorder
-;
-
-create sequence cliente_seq
-  start with 101
-  increment by 1
-  nominvalue
-  nomaxvalue
-  cache 20
-  noorder
-;
-
-create sequence direccion_web_seq
-  start with 101
-  increment by 1
-  nominvalue
-  nomaxvalue
-  cache 20
-  noorder
-;
-
-create sequence donativo_seq
-  start with 101
-  increment by 1
-  nominvalue
-  nomaxvalue
-  cache 20
-  noorder
-;
+--@Descripción:     (s-05-secuencias) - Script creado para la creacion de secuencias
 
 create sequence empleado_seq
-  start with 101
-  increment by 1
-  nominvalue
-  nomaxvalue
-  cache 20
-  noorder
-;
-
-create sequence estatus_mascota_seq
-  start with 101
-  increment by 1
-  nominvalue
-  nomaxvalue
-  cache 20
-  noorder
-;
-
-create sequence grado_academico_seq
-  start with 1
-  increment by 1
-  nominvalue
-  nomaxvalue
-  cache 20
-  noorder
-;
-
-create sequence historico_estatus_mascota
-  start with 1
-  increment by 1
-  nominvalue
-  nomaxvalue
-  cache 20
-  noorder
-;
+	start with 100 
+	increment by 1
+	nomaxvalue 
+	nominvalue
+	nocycle
+	cache 5;
 
 create sequence mascota_seq
-  start with 101
-  increment by 1 
-  nominvalue
-  nomaxvalue
-  cache 20
-  noorder
-;
+	start with 100 
+	increment by 1
+	nomaxvalue 
+	nominvalue
+	nocycle
+	cache 5;
 
-create sequence revision_adopcion_seq
-  start with 101
-  increment by 1
-  nominvalue
-  nomaxvalue
-  cache 20
-  noorder
-;
+create sequence grado_academico_seq
+	start with 100 
+	increment by 1
+	nomaxvalue 
+	nominvalue
+	nocycle
+	cache 5;
+
+create sequence centro_operativo_seq
+	start with 100 
+	increment by 1
+	nomaxvalue 
+	nominvalue
+	nocycle
+	cache 5;
+
+create sequence direccion_web_seq
+	start with 100 
+	increment by 1
+	nomaxvalue 
+	nominvalue
+	nocycle
+	cache 5;
+
+create sequence tipo_mascota_seq
+	start with 100 
+	increment by 1
+	nomaxvalue 
+	nominvalue
+	nocycle
+	cache 5;
 
 create sequence revision_mascota_seq
-  start with 101
-  increment by 1
-  nominvalue
-  nomaxvalue
-  cache 20
-  noorder
-;
+	start with 100 
+	increment by 1
+	nomaxvalue 
+	nominvalue
+	nocycle
+	cache 5;
+
+create sequence revision_adopcion_seq
+	start with 100 
+	increment by 1
+	nomaxvalue 
+	nominvalue
+	nocycle
+	cache 5;
+
+create sequence estatus_mascota_seq
+	start with 100 
+	increment by 1
+	nomaxvalue 
+	nominvalue
+	nocycle
+	cache 5;
+
+create sequence historico_estatus_mascota_seq
+	start with 100 
+	increment by 1
+	nomaxvalue 
+	nominvalue
+	nocycle
+	cache 5;
+
+create sequence origen_web
+	start with 100 
+	increment by 1
+	nomaxvalue 
+	nominvalue
+	nocycle
+	cache 5;
+
+create sequence adopcion_seq
+	start with 100 
+	increment by 1
+	nomaxvalue 
+	nominvalue
+	nocycle
+	cache 5;
 
 
+create sequence cliente_seq
+	start with 100 
+	increment by 1
+	nomaxvalue 
+	nominvalue
+	nocycle
+	cache 5;
 
-
-
-
+create sequence donativo_seq
+	start with 100 
+	increment by 1
+	nomaxvalue 
+	nominvalue
+	nocycle
+	cache 5;
