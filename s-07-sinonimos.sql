@@ -7,7 +7,7 @@
 
 --Nos conectamos al usuario administrador para otorgar permisos
 connect rj_proy_admin/rj_admin
-grant select on mascota, cliente, refugio, oficina, clinica, adopcion
+grant select on mascota, cliente, refugio, oficina, clinica, adopcion, centro_operativo
 to rj_proy_invitado;
 
 Prompt Concediendo permisos para la creación de sinonimos al usuario invitado
@@ -25,6 +25,7 @@ create or replace public synonym regufio for rj_proy_admin.refugio;
 create or replace public synonym oficina for rj_proy_admin.oficina;
 create or replace public synonym clinica for rj_proy_admin.clinica;
 create or replace public synonym adopcion for rj_proy_admin.adopcion;
+create or replace public synonym centro from rj_proy_admin.centro_operativo;
 
 -- Sinónimos privados de cada tabla
 connect rj_proy_admin/rj_admin
