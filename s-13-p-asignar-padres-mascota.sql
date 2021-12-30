@@ -1,0 +1,4 @@
+--@autor:           Juárez Pérez Hugo
+--@Fecha creación:  2021-12-30
+--@Descripción:     Script que añade los padres a una mascota nacida en
+--                  en el refugio.
