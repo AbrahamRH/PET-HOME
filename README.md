@@ -8,5 +8,5 @@
 - Verificar tablas temporales
 - Trigger utilizando entidad adopción,
 	Al momento de ralizar una adopción, por el modelo tambien hay que cambiar el cliente_id en mascota que denota
-	su nuevo dueño, esto se puede implementar como un after trigger creo yo. 
-
+	su nuevo dueño, esto se puede implementar como un after trigger creo yo.
+-Poblar Centro operativos
