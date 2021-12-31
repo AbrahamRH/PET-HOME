@@ -9,4 +9,7 @@
 - Trigger utilizando entidad adopción,
 	Al momento de ralizar una adopción, por el modelo tambien hay que cambiar el cliente_id en mascota que denota
 	su nuevo dueño, esto se puede implementar como un after trigger creo yo.
--Poblar Centro operativos
+- Poblar Centro operativos
+- Uso de funciones
+- Uso de cursores ya sea en cualquier otro archivo PL/SQL o en uno particular 
+	llamado s-19-cur ...
