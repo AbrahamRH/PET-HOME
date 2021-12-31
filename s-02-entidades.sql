@@ -11,7 +11,8 @@ create table centro_operativo
 	nombre 		          	varchar2(40)  not null,
 	latitud 		      		number(4,1)   not null,
 	longitud 		      		number(4,1)   not null,
-	codigo 				    		varchar2(5)   not null,
+	codigo varchar2(5) generated always
+		as ('PET' || upper(substrb(nombre,1,1)) || upper(substrb(direccion,1,1))) virtual,
 	es_refugio 		     		number(1,0)   not null,
 	es_clinica 		    		number(1,0)   not null,
 	es_oficina 	    			number(1,0)   not null,
