@@ -14,7 +14,7 @@ create or replace trigger tr_maximo_adopciones
 		from mascota 
 		where cliente_id = :new.cliente_id;
 		if v_count > 5 then
-			raise_application_error(-21000, 'Se ha superado el número máximo de adopcion');
+			raise_application_error(-21000, 'Se ha superado el número máximo de mascotas adoptadas');
 		end if;
 	end;
 	/

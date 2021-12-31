@@ -3,23 +3,18 @@
 --@Descripción:     (s-02-entidades) - Script empleado para la creación
 --                  de las tablas del caso de estudio
 
-/*
-	TODO: 
-		- Uso de default
-		- Uso de columnas virtuales
-*/
 -- CENTRO_OPERATIVO
 create table centro_operativo
 (
 	centro_operativo_id 	number(10,0)  not null,
 	direccion 	        	varchar2(100) not null,
 	nombre 		          	varchar2(40)  not null,
-	latitud 		      	number(4,1)   not null,
-	longitud 		      	number(4,1)   not null,
-	codigo 				    varchar2(5)   not null,
-	es_refugio 		     	number(1,0)   not null,
-	es_clinica 		    	number(1,0)   not null,
-	es_oficina 	    		number(1,0)   not null,
+	latitud 		      		number(4,1)   not null,
+	longitud 		      		number(4,1)   not null,
+	codigo 				    		varchar2(5)   not null,
+	es_refugio 		     		number(1,0)   not null,
+	es_clinica 		    		number(1,0)   not null,
+	es_oficina 	    			number(1,0)   not null,
 	constraint centro_operativo_pk primary key(centro_operativo_id),
 	constraint centro_operativo_uk unique(codigo),
 	constraint centro_operativo_rol_chk check((es_refugio = 0 or es_refugio = 1)
@@ -32,15 +27,15 @@ create table centro_operativo
 -- EMPLEADO
 create table empleado 
 (
-	empleado_id 	   	number(10,0) not null,
-	nombre 			    varchar2(40) not null,
+	empleado_id 	   		number(10,0) not null,
+	nombre 			    		varchar2(40) not null,
 	apellido_paterno  	varchar2(40) not null,
 	apellido_materno  	varchar2(40) not null,
-	curp 			    varchar2(18) not null,
+	curp 			    			varchar2(18) not null,
 	fecha_ingreso 	  	date 		 not null,
-	email 		      	varchar2(40) not null,
-	sueldo 			    number(8,2)  not null,
-	es_gerente 		    number(1,0)  not null,
+	email 		      		varchar2(40) not null,
+	sueldo 			    		number(8,2)  not null,
+	es_gerente 		    	number(1,0)  not null,
 	es_administrativo   number(1,0)  not null,
 	es_veterinario 	  	number(1,0)  not null,
 	centro_operativo_id number(10,0) not null,
@@ -57,8 +52,8 @@ create table refugio
 (
 	centro_operativo_id number(10,0) not null,
 	numero_de_registro  varchar2(8)  not null,
-	logo 				blob 		 not null,
-	lema  				varchar2(40) not null,
+	logo 								blob 		 not null,
+	lema  							varchar2(40) not null,
 	refugio_alterno_id  number(10,0) not null,
 	constraint refugio_pk primary key(centro_operativo_id),
 	constraint refugio_registro_uk unique(numero_de_registro),
@@ -70,8 +65,8 @@ create table refugio
 
 -- DIRECCION_WEB
 create table direccion_web(
-	direccion_web_id 	number(10,0) not null,
-	dominio_url 		varchar2(40) not null,
+	direccion_web_id 		number(10,0) not null,
+	dominio_url 				varchar2(40) not null,
 	centro_operativo_id number(10,0) not null,
 	constraint direccion_web_pk primary key(direccion_web_id),
 	constraint direccion_web_centro_operativo_id_fk foreign key(centro_operativo_id)
@@ -95,8 +90,8 @@ create table oficina(
 -- CLINICA
 create table clinica(
 	centro_operativo_id number(10,0) not null,
-	hora_inicio 		date 		 not null,
-	hora_fin 			date 		 not null,
+	hora_inicio 				date 		 not null,
+	hora_fin 						date 		 not null,
 	telefono_atencion   varchar2(10) not null,
 	telefono_emergencia varchar2(10) not null,
 	constraint clinica_pk primary key(centro_operativo_id),
@@ -130,12 +125,13 @@ create table origen(
 -- CLIENTE
 create table cliente(
 	cliente_id 	number(10,0) not null,
-	nombre 		varchar2(40) not null,
+	nombre 			varchar2(40) not null,
 	ap_paterno  varchar2(40) not null,
 	ap_materno  varchar2(40) not null,
 	direccion   varchar2(40) not null,
 	ocupacion   varchar2(40) not null,
-	usuario     varchar2(40) not null,
+	usuario     varchar2(50) generated always 
+		as (nombre || '_' || substr(ap_paterno,1,1) || '_' || substr(ap_materno,1,1) ) virtual,
 	password    varchar2(40) not null,
 	constraint cliente_pk primary key(cliente_id),
 	constraint cliente_usuario_uk unique(usuario)
@@ -143,22 +139,22 @@ create table cliente(
 
 -- MASCOTA
 create table mascota(
-	mascota_id 		      	number(10,0) 			not null,
-	nombre  	 		    varchar2(40) 			not null,
-	folio 				    varchar2(8)  			not null,
+	mascota_id 		      	number(10,0) 		not null,
+	nombre  	 		    		varchar2(40) 		not null,
+	folio 				   		  varchar2(8)  		not null,
 	fecha_ingreso      	  	date  default sysdate 	not null,
-	fecha_estatus      	  	date 			   		not null,
-	fecha_nacimiento   	  	date 			   		not null,
-	causa_muerte 		   	varchar2(40) 			not null,
-	estatus_mascota_id  	number(10,0) 			not null,
-	tipo_mascota_id 	  	number(10,0) 			not null,
-	centro_operativo_id 	number(10,0) 			not null,
-	origen_id 				number(10,0) 			not null,
-	cliente_id 				number(10,0) 			null,
-	donador_id 			  	number(10,0) 			null,
-	mascota_padre_id  	  	number(10,0) 			null,
-	mascota_madre_id      	number(10,0) 			null,
-	centro_nacimiento_id  	number(10,0) 			null,
+	fecha_estatus      	  	date 			    not null,
+	fecha_nacimiento   	  	date 			    not null,
+	causa_muerte 		   		varchar2(40) 	 	not null,
+	estatus_mascota_id  	number(10,0) 		not null,
+	tipo_mascota_id 	  	number(10,0) 		not null,
+	centro_operativo_id 	number(10,0) 		not null,
+	origen_id 						number(10,0) 		not null,
+	cliente_id 						number(10,0) 			null,
+	donador_id 			  		number(10,0) 			null,
+	mascota_padre_id  	  number(10,0) 			null,
+	mascota_madre_id      number(10,0) 			null,
+	centro_nacimiento_id  number(10,0) 			null,
 	constraint mascota_pk primary key(mascota_id),
 	constraint mascota_folio_uk unique(folio),
 	constraint mascota_estatus_id_fk foreign key(estatus_mascota_id)
@@ -184,9 +180,9 @@ create table mascota(
 -- HISTORICO_ESTATUS_MASCOTA
 create table historico_status_mascota(
 	historico_status_mascota_id number(10,0) not null,
-	fecha_estatus 				date 		 not null,
+	fecha_estatus 				 			date 		 not null,
 	estatus_mascota_id          number(10,0) not null,
-	mascota_id 					number(10,0) not null,
+	mascota_id 									number(10,0) not null,
 	constraint historico_status_mascota_pk 
 	primary key(historico_status_mascota_id),
 	constraint historico_status_mascota_id_fk foreign key(estatus_mascota_id)
@@ -196,12 +192,12 @@ create table historico_status_mascota(
 );
 -- ADOPCION
 create table adopcion(
-	adopcion_id 	  		number(10,0)  not null,
-	fecha_adopcion  		date 		  not null,
+	adopcion_id 	  			number(10,0)  not null,
+	fecha_adopcion  			date 		  not null,
 	es_ganador          	number(1,0)   not null,
 	descripcion_rechazo 	varchar2(200) null,
-	cliente_id 				number(10,0)  not null,
-	mascota_id 				number(10,0)  not null,
+	cliente_id 						number(10,0)  not null,
+	mascota_id 						number(10,0)  not null,
 	constraint adopcion_pk primary key(adopcion_id),
 	constraint adopcion_cliente_id_fk foreign key(cliente_id)
 		references cliente(cliente_id),
@@ -225,13 +221,13 @@ create table donativo(
 
 -- REVISION_ADOPCION
 create table revision_adopcion(
-	mascota_id 	 	 	number(10,0)  								not null,
+	mascota_id 	 	 		number(10,0)  								not null,
 	num_revision   		number(10,0) generated always as identity,
 	fecha_revision 		date  default  sysdate 						not null,
 	calificacion   		number(2,0)   								not null,
 	costo_revision 		number(10,2)  								not null,
 	observaciones  		varchar2(200) 								not null,
-	cliente_id  	 	number(10,0)  								not null,
+	cliente_id  	 		number(10,0)  								not null,
 	centro_operativo_id number(10,0) 								not null,
 	constraint revision_adopcion_pk primary key(mascota_id, num_revision),
 	constraint revision_adopcion_calificacion_chk check(
@@ -245,12 +241,12 @@ create table revision_adopcion(
 
 -- REVISION_MASCOTA
 create table revision_mascota(
-	revision_mascota_id 		number(10,0)  				not null,
-	fecha_revision 				date default sysdate 		not null,
-	diagnostico  				varchar2(200) 				not null,
-	foto_mascota  		  		blob default empty_blob() 	not null,
-	empleado_id 				number(10,0)  				not null,
-	mascota_id 					number(10,0)  				not null,
+	revision_mascota_id 	number(10,0)  				not null,
+	fecha_revision 				date default sysdate 	not null,
+	diagnostico  					varchar2(200) 				not null,
+	foto_mascota  		  	blob default empty_blob() 	not null,
+	empleado_id 					number(10,0)  				not null,
+	mascota_id 						number(10,0)  				not null,
 	constraint revision_mascota_pk primary key(revision_mascota_id),
 	constraint revision_mascota_empleado_id_fk foreign key(empleado_id)
 		references empleado(empleado_id),

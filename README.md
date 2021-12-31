@@ -2,7 +2,7 @@
 
 ## TODO por scripts:
 
-- [ ] s-02-entidades
+- [x] s-02-entidades
  	-	creacion de la columna virtual para el campo edad de la entidad mascota. 
 
  	-	Si se agrega el campo edad, es necesario modificar el modelo, tal vez en una vista sea posible. 
