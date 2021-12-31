@@ -50,3 +50,8 @@ join mascota m
 on rm.mascota_id = m.mascota_id
 group by rm.empleado_id,m.mascota_id, m.nombre, rm.foto_mascota, rm.fecha_revision;
 
+--Consulta con tabla temporal
+
+--Consulta utilizando una vista
+
+--Consulta con un sinonimo
