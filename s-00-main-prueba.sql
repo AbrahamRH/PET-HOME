@@ -14,6 +14,9 @@ connect rj_proy_admin/rj_admin
 prompt Creando objetos
 @s-02-entidades.sql
 
+prompt Creando tablas temporales
+@s-03-tablas-temporales.sql
+
 
 prompt Listo!
 

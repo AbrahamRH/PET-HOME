@@ -12,22 +12,21 @@ create global temporary table centros_operativos on commit preserve rows as
 	natural join oficina
 );
 
-
 -- NOMINA_EMPLEADOS
 create private temporary table ora$ptt_nomina_empleados 
 (
-	nomina_id number(10,0) not null,
-	empleado_id number(10,0) not null,
-	nombre varchar(40) not null,
-	apellido_paterno varchar(40) not null,
-	apellido_materno varchar(40) not null,
+	nomina_id number(10,0),
+	empleado_id number(10,0),
+	nombre varchar(40),
+	apellido_paterno varchar(40),
+	apellido_materno varchar(40),
 	sueldo_mensual number(8,2)
 )on commit preserve definition;
 
 -- DONADORES
-create private temporary table ora$ptt_donadores on commit preserve rows as 
+create private temporary table ora$ptt_donadores on commit preserve definition as 
 (
-	select c.cliente_id, c.nombre, c.apellido_paterno, d.fecha_donativo, d.monto_donativo
+	select c.cliente_id, c.nombre, c.ap_paterno, d.fecha_donativo, d.monto_donativo
 	from cliente c, donativo d
 	where c.cliente_id = d.cliente_id
 );

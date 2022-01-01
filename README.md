@@ -11,7 +11,7 @@
 
 			modificar el tipo de dato del modelo, de la tabla mascota
 
-- [ ] s-03-tablas-temporales
+- [x] s-03-tablas-temporales
 	-	verificar su funcionamiento
 
 - [ ] s-09-carga-inicial
