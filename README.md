@@ -19,7 +19,7 @@
 	-	Cambiar valores booleanos por el apropiado para oracle
 
 
-- [ ] s-10-consultas
+- [x] s-10-consultas
 	-	Consulta que involucre un: tabla temporal
 
 - [ ] s-11-tr

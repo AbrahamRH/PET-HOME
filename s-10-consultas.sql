@@ -52,4 +52,9 @@ join mascota m
 on rm.mascota_id = m.mascota_id
 group by rm.empleado_id,m.mascota_id, m.nombre, rm.foto_mascota, rm.fecha_revision;
 
-
+-- Utilizando una tabla temporal
+-- Se necesita obtener información de todos los centros operativos, su nombre,
+-- direccion, si son refugios su lema, si son clínicas su telefono de emergencia 
+-- y si son oficinas se necesita el nombre del responsable
+select nombre, direccion, lema, telefono_emergencia, responsable_nombre
+from centros_operativos;
