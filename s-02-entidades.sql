@@ -146,7 +146,7 @@ create table mascota(
 	fecha_ingreso      	  	date  default sysdate 	not null,
 	fecha_estatus      	  	date 			    not null,
 	fecha_nacimiento   	  	date 			    not null,
-	causa_muerte 		   		varchar2(40) 	 	not null,
+	causa_muerte 		   		varchar2(40) 	 	null, --esto deberia ser null
 	estatus_mascota_id  	number(10,0) 		not null,
 	tipo_mascota_id 	  	number(10,0) 		not null,
 	centro_operativo_id 	number(10,0) 		not null,
