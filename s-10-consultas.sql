@@ -25,6 +25,7 @@ where monto_donativo = (
 )
 group by fecha_donativo, monto_donativo;
 
+--Consulta utilizando una vista
 -- Se desea obtener el nombre completo, id y sueldo del gerente con mayor sueldo mensual
 select  g.empleado_id, g.nombre, g.apellido_paterno, g.apellido_materno, q1.sueldo
 from v_lista_gerentes g
@@ -35,6 +36,7 @@ join (
 ) q1
 on q1.empleado_id = g.empleado_id;
 
+--Consulta con un sinonimo y álgebra relacional
 -- Seleccionar todos los datos de los centros operativos menos de los que sean oficinas
 select * 
 from centro
@@ -50,8 +52,9 @@ join mascota m
 on rm.mascota_id = m.mascota_id
 group by rm.empleado_id,m.mascota_id, m.nombre, rm.foto_mascota, rm.fecha_revision;
 
---Consulta con tabla temporal
-
---Consulta utilizando una vista
-
---Consulta con un sinonimo
+-- Utilizando una tabla temporal
+-- Se necesita obtener información de todos los centros operativos, su nombre,
+-- direccion, si son refugios su lema, si son clínicas su telefono de emergencia 
+-- y si son oficinas se necesita el nombre del responsable
+select nombre, direccion, lema, telefono_emergencia, responsable_nombre
+from centros_operativos;

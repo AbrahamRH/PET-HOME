@@ -20,8 +20,8 @@
 	-	Corregir formato para que las fechas se inserten correctamente
 
 
-- [ ] s-10-consultas
-	-	Consulta que involucre un: sinonimo, vista, tabla temporal, tabla externa,
+- [x] s-10-consultas
+	-	Consulta que involucre un: tabla temporal
 
 - [ ] s-11-tr
 	-	segundo trigger tipo row level.
