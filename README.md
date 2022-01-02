@@ -14,10 +14,10 @@
 - [x] s-03-tablas-temporales
 	-	verificar su funcionamiento
 
-- [ ] s-09-carga-inicial
+- [x] s-09-carga-inicial
 	-	~~Poblar los centros operativos~~
 	-	~~Cambiar valores booleanos por el apropiado para oracle~~
-	-	Corregir formato para que las fechas se inserten correctamente
+	-	~~Corregir formato para que las fechas se inserten correctamente~~
 
 
 - [x] s-10-consultas
