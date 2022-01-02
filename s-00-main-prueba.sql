@@ -26,6 +26,9 @@ prompt Creando secuencias
 prompt Creando índices
 @s-06-indices.sql
 
+prompt Creando sinónimos
+@s-07-sinonimos.sql
+
 prompt Poblando tablas
 @s-09-carga-inicial.sql
 

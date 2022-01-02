@@ -31,7 +31,7 @@ create role rol_invitado;
 
 grant create session, create table, create procedure, create trigger,
 	create sequence, create view, create synonym to rol_admin;
-grant create session to rol_invitado;
+grant create session, create public synonym to rol_invitado;
 
 Prompt Creando usuarios y asignando roles
 create user rj_proy_admin identified by rj_admin quota unlimited on users; 
