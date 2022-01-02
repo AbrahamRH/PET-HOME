@@ -43,7 +43,3 @@ Prompt creando directorio
 !cp donativo_ext.csv /tmp/base_externa
 !chmod 777 /tmp/base_externa
 
-Prompt Mostrando los datos
-select fecha_donativo, monto_donativo from donativo_ext;
-
-
