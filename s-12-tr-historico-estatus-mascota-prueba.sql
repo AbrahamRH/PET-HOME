@@ -6,7 +6,7 @@ set serveroutput on
 
 update mascota
 set estatus_mascota_id = 5
-where mascota_id = 1;
+where mascota_id < 10;
 
 
 declare
