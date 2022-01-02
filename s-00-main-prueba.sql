@@ -20,6 +20,12 @@ prompt Creando tablas temporales
 prompt Creando tablas externas
 @s-04-tablas-externas.sql
 
+prompt Creando secuencias
+@s-05-secuencias.sql
+
+prompt Creando índices
+@s-06-indices.sql
+
 prompt Poblando tablas
 @s-09-carga-inicial.sql
 

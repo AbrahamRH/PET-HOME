@@ -48,7 +48,6 @@ create table empleado
 	)
 );
 
-
 -- GRADO ACADEMICO
 create table grado_academico
 (
@@ -63,7 +62,6 @@ create table grado_academico
 	constraint empleado_id_fk foreign key(empleado_id)
 		references empleado(empleado_id)
 );
-
 
 
 -- REFUGIO
