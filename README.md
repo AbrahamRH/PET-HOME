@@ -27,7 +27,7 @@
 	- Revisar penultima consulta utilizando un BLOB
 
 - [ ] s-11-tr
-	-	segundo trigger tipo row level.
+	-	~~segundo trigger tipo row level.~~
 	-	compound trigger
 
 	-	Trigger utilizando entidad adopción, Al momento de ralizar una adopción, por el modelo tambien hay que cambiar el cliente_id en mascota que denota su nuevo dueño, esto se puede implementar como un after trigger creo yo.
