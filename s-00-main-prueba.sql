@@ -35,6 +35,8 @@ prompt Creando vistas
 prompt Poblando tablas
 @s-09-carga-inicial.sql
 
+prompt Realizando las consultas
+--@s-10-consultas.sql
 
 prompt Listo!
 
