@@ -22,7 +22,7 @@ where em.descripcion in ('DISPONIBLE_PARA_ADOPCION', 'SOLICITADA_PARA_ADOPCION')
 create or replace view v_cliente 
 (
 	cliente_id, nombre, apellido_paterno, apellido_materno, ocupacion
-)as select cliente_id, nombre, apellido_paterno, apellido_materno, ocupacion
+)as select cliente_id, nombre, ap_paterno, ap_materno, ocupacion
 from cliente;
 
 -- V_LISTA_GERENTES
@@ -32,4 +32,7 @@ create or replace view v_lista_gerentes
 	centro_operativo_id, nombre_centro, direccion
 ) as select e.empleado_id, e.nombre, e.apellido_paterno, e.apellido_materno,
 	c.centro_operativo_id, c.nombre, c.direccion
-where e.es_gerente = 1;
+	from empleado e
+	join centro_operativo c
+		on e.centro_operativo_id = c.centro_operativo_id
+	where e.es_gerente = 1;

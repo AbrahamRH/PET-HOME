@@ -29,6 +29,9 @@ prompt Creando índices
 prompt Creando sinónimos
 @s-07-sinonimos.sql
 
+prompt Creando vistas
+@s-08-vistas.sql
+
 prompt Poblando tablas
 @s-09-carga-inicial.sql
 
