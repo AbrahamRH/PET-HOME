@@ -34,7 +34,7 @@ grant create session, create table, create procedure, create trigger,
 grant create session to rol_invitado;
 
 Prompt Creando usuarios y asignando roles
-create user rj_proy_admin identified by rj_admin;
+create user rj_proy_admin identified by rj_admin quota unlimited on users; 
 create user rj_proy_invitado identified by rj_invitado;
 
 grant rol_admin to rj_proy_admin;
