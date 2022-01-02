@@ -17,6 +17,12 @@ prompt Creando objetos
 prompt Creando tablas temporales
 @s-03-tablas-temporales.sql
 
+prompt Creando tablas externas
+@s-04-tablas-externas.sql
+
+prompt Poblando tablas
+@s-09-carga-inicial.sql
+
 
 prompt Listo!
 

@@ -7,7 +7,7 @@ Prompt conectandose como sys
 connect sys as sysdba
 
 Prompt creando directorio tmp_dir
-create or replace directory as '/tmp/base_externa/';
+create or replace directory tmp_dir as '/tmp/base_externa/';
 
 grant read, write on directory tmp_dir to rj_proy_admin;
 
@@ -17,12 +17,12 @@ connect rj_proy_admin/rj_admin
 Prompt Creando la tabla externa
 create table donativo_ext (
 	fecha_donativo date,
-	monto_donativo number(10,2),
+	monto_donativo number(10,2)
 )
 organization external(
 	type oracle_loader 
 	default directory tmp_dir
-	acces parameters (
+	access parameters (
 		records delimited by newline
 		badfile tmp_dir:'donativo_ext_bad.log'
 		logfile tmp_dir:'mascota_ext_.log'
