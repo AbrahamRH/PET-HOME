@@ -308,5 +308,6 @@ insert into GRADO_ACADEMICO (grado_academico_id, titulo, fecha_titulacion, cedul
 insert into GRADO_ACADEMICO (grado_academico_id, titulo, fecha_titulacion, cedula_profesional, empleado_id) values (40, 'Licenciatura en Administración', to_date('13/11/2021','dd/mm/yyyy'), 'UKTW778072XYJNEB77', 40);
 
 prompt OK! Datos cargados
+commit;
 
 
