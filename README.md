@@ -14,14 +14,17 @@
 - [x] s-03-tablas-temporales
 	-	verificar su funcionamiento
 
-- [x] s-09-carga-inicial
+- [ ] s-09-carga-inicial
 	-	~~Poblar los centros operativos~~
 	-	~~Cambiar valores booleanos por el apropiado para oracle~~
 	-	~~Corregir formato para que las fechas se inserten correctamente~~
+	- Poblar tablas temporales
 
 
-- [x] s-10-consultas
-	-	Consulta que involucre un: tabla temporal
+- [ ] s-10-consultas
+	-	~~Consulta que involucre un: tabla temporal~~
+	- Revisar primera consulta (No regresa registros)
+	- Revisar penultima consulta utilizando un BLOB
 
 - [ ] s-11-tr
 	-	segundo trigger tipo row level.
