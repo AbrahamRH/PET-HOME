@@ -48,6 +48,24 @@ create table empleado
 	)
 );
 
+
+-- GRADO ACADEMICO
+create table grado_academico
+(
+	grado_academico_id		number(10,0) not null,
+	titulo					varchar2(40) not null,
+	fecha_titulacion		date 		 not null,
+	cedula_profesional		varchar2(20) not null,
+	empleado_id				number(10,0) not null,
+
+	constraint grado_academico_pk primary key(grado_academico_id),
+	constraint grado_academico_cedula_profecional_uk unique (cedula_profesional),
+	constraint empleado_id_fk foreign key(empleado_id)
+		references empleado(empleado_id)
+);
+
+
+
 -- REFUGIO
 create table refugio
 (
