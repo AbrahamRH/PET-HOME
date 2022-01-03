@@ -50,7 +50,7 @@
 
 - [ ] s-15-fx
 	-	funcion que genere el CURP para cada empleado (?)
-	-	funcion que inserte leer una foto y se obtenga un objeto blob para insertar en cualquier campo que utilice un blob (?)
+	-	~~funcion que inserte leer una foto y se obtenga un objeto blob para insertar en cualquier campo que utilice un blob (?)~~
 
 - [ ] s-16-fx 
 	-	pruebas para cada función

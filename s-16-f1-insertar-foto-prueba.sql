@@ -24,7 +24,8 @@ insert into revision_mascota (revision_mascota_id,
 
 set serveroutput on 
 declare
-	v_foto blob;
+	v_return_value number(1,0);
+	v_foto bfile;
 	v_foto_tabla blob;
 	v_tabla_length number;
 	v_foto_length number;
@@ -33,18 +34,14 @@ begin
 	v_indice := revision_mascota_seq.currval;
 	dbms_output.put_line('El indice es: ' ||v_indice);
 	dbms_output.put_line('Llamando a la función f1_insertar_foto');
-	f1_insertar_foto('Ajolote.jpg','REVISION_MASCOTA','FOTO_MASCOTA', v_indice);
+	v_return_value := f1_insertar_foto('Ajolote.jpg','REVISION_MASCOTA','FOTO_MASCOTA', v_indice);
 
 	-- Extraemos la imagen de la tabla
 	select foto_mascota into v_foto_tabla
 	from revision_mascota
 	where revision_mascota_id = v_indice;
 
-	-- verificamos las dos imágenes
-	v_foto_length := dbms_lob.getlength(v_foto);
-	v_tabla_length := dbms_lob.getlength(v_foto_tabla);
-
-	if v_foto_length = v_tabla_length then
+	if v_return_value = 1 then
 		dbms_output.put_line('OK, Imágen almacenada en la base de datos');
 	else
 		raise_application_error(-20005, 'La imagen no se actualizo');
