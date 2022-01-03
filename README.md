@@ -28,9 +28,10 @@
 
 - [ ] s-11-tr
 	-	~~segundo trigger tipo row level.~~
-	-	compound trigger
+	-	~~compound trigger~~
 
-	-	Trigger utilizando entidad adopción, Al momento de ralizar una adopción, por el modelo tambien hay que cambiar el cliente_id en mascota que denota su nuevo dueño, esto se puede implementar como un after trigger creo yo.
+	-	~~Trigger utilizando entidad adopción, Al momento de ralizar una adopción, por el modelo tambien hay que cambiar el cliente_id en mascota que denota su nuevo dueño, esto se puede implementar como un after trigger creo yo.~~
+	-	Verificar que efectivamente el script s-11-tr-ganador-adopción se ejecuta correctamente
 
 - [ ] s-12-tr-prueba
 	-	prueba para segundo trigger tipo row level
