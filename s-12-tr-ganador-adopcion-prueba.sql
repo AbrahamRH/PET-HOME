@@ -4,9 +4,6 @@
 
 
 set serveroutput on
-
-
-
 declare
   v_mascota_id number;
   v_count number;
