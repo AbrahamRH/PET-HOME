@@ -63,7 +63,6 @@ create table grado_academico
 		references empleado(empleado_id)
 );
 
-
 -- REFUGIO
 create table refugio
 (

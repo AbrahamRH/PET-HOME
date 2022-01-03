@@ -5,6 +5,10 @@
 --                  la tabla revision
 
 -- Lectura de una foto del disco para ingresarlo en una tabla
+-- @param p_nombre_foto nombre del archivo a insertar
+-- @param p_nombre_tabla nombre de la tabla a insertar la foto
+-- @param p_nombre_columna nombre de la columna donde se encuentra la foto
+-- @param p_indice Índice del registro en donde se insertará la imagen
 create or replace function f1_insertar_foto(
 	p_nombre_foto 		varchar2,
 	p_nombre_tabla    varchar2,
@@ -37,15 +41,6 @@ begin
 		|| ' into v_blob' || ' from ' || p_nombre_tabla
 		|| ' where ' || v_nombre_indice || ' = ' || p_indice
 		|| ' for update'; 
-
-	/*
-	 * select p_nombre_columna
-	 * into v_blob
-	 * from p_nombre_tabla
-	 * where v_nombre_indice = p_indice
-	 * for update;
-	 */
-
 	execute immediate v_consulta;
 
 	
@@ -75,16 +70,3 @@ end;
 /
 show errors
 
-/*
- *
- *   Prompt configurando el directorio
- *   connect sys/system as sysdba
- *   -- Copiando fotos de las mascotas a el directorio tmp
- *   !cp ./fotos /tmp/
- *   !chmod 777 /tmp/fotos
- *   [>Lectura al disco<]
- *   create or replace directory tmp_dir as '/tmp/fotos';
- *   grant read, write on directory tmp_dir to rol_admin;
- *   connect rj_proy_admin/rj_admin;
- *
- */
