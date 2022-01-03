@@ -14,7 +14,7 @@ create or replace function f1_insertar_foto(
 	p_nombre_tabla    varchar2,
 	p_nombre_columna  varchar2,
 	p_indice  				number
-) return blob is
+) return number is
 	v_bfile bfile;
 	v_blob  blob;
 	v_archivo varchar2(40);
@@ -23,7 +23,7 @@ create or replace function f1_insertar_foto(
 	v_dest_offset number;
 	v_src_length number;
 	v_dest_length number;
-	v_consulta varchar2(40);
+	v_consulta varchar2(100);
 begin
 
 	v_bfile := bfilename('TMP_DIR',p_nombre_foto);
@@ -38,11 +38,9 @@ begin
 
 	v_nombre_indice := p_nombre_tabla || '_id';
 	v_consulta := 'select ' || p_nombre_columna 
-		|| ' into v_blob' || ' from ' || p_nombre_tabla
-		|| ' where ' || v_nombre_indice || ' = ' || p_indice
-		|| ' for update'; 
-	execute immediate v_consulta;
-
+		|| ' from ' || p_nombre_tabla
+		|| ' where ' || v_nombre_indice || ' = ' || p_indice;
+	execute immediate v_consulta into v_blob;
 	
 	v_src_offset := 1;
 	v_dest_offset := 1;
@@ -64,8 +62,8 @@ begin
 
 	dbms_lob.close(v_bfile);
 
-	return v_blob;
 	commit;
+	return 1;
 end;
 /
 show errors
