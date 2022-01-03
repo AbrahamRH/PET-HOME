@@ -9,15 +9,7 @@ for
   on adopcion
 compound trigger 
 
---seccion declarativa común
-
 before each row is 
-  --Utilizar un cursor para obtener todos aquellos clientes que perdieron el concurso para la mascota 
-  --correspondiente
-
-  --Marcar a cada uno de ellos con la misma descripción generica por ahora... 
-
-  --Asignar el ID del cliente ganador a la mascota correspondiente
 begin 
   update mascota
   set cliente_id = :new.cliente_id
@@ -26,17 +18,10 @@ end before each row;
 
 after statement is
 begin
-
-
   update adopcion
   set descripcion_rechazo = 'No cumples con el requirimiento de esta mascota'
   where es_ganador = 0;
-
-
-
 end after statement;
-
-
 
 end;
 /
