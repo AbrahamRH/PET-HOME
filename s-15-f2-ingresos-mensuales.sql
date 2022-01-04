@@ -3,26 +3,31 @@
 --@Descripción:     (s-15-f2-ingresos-mensuales) - Funcion para la obtención 
 -- 									de los ingresos mensuales de las donaciones (tabla donaciones y donaciones_ext)
 
-create or replace function get_ingresos_mensuales(
-	mes in varchar2,
-	ingreso_mensual out number
+set serveroutput on
+create or replace function get_ingresos_por_periodo(
+	p_fecha_inicio varchar2,
+	p_fecha_fin varchar2
 ) return number is
-	v_ingreso_donativo number(10,2);
-	v_ingreso_donativo_ext number(10,2);
+	v_monto_donativo number;
+	v_monto_donativo_ext number not null := 0;
+	v_ingresos_periodo number not null := 0;
 begin
-	select sum(monto_donativo)
-	into v_ingreso_donativo
+	select nvl(sum(monto_donativo), 0)
+	into v_monto_donativo
 	from donativo
-	where fecha_donativo <=  sysdate
-	and fecha_donativo >= sysdate - 30;
+	where fecha_donativo >= to_date(p_fecha_inicio,'dd/mm/yyyy')
+	and fecha_donativo <= to_date(p_fecha_fin, 'dd/mm/yyyy');
 
-	select sum(monto_donativo)
-	into v_ingreso_donativo_ext
+	select nvl(sum(monto_donativo), 0)
+	into v_monto_donativo_ext
 	from donativo_ext
-	where fecha_donativo <=  sysdate
-	and fecha_donativo >= sysdate - 30;
-	
-	ingreso_mensual := v_ingreso_donativo + v_ingreso_donativo_ext;
+	where fecha_donativo >= to_date(p_fecha_inicio,'dd/mm/yyyy')
+	and fecha_donativo <= to_date(p_fecha_fin, 'dd/mm/yyyy');
+
+
+	v_ingresos_periodo := v_monto_donativo + v_monto_donativo_ext;
+
+	return v_ingresos_periodo;
 end;
 /
 show errors

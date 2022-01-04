@@ -68,7 +68,7 @@ create table refugio
 (
 	centro_operativo_id number(10,0) not null,
 	numero_de_registro  varchar2(8)  not null,
-	logo 								blob 		 not null,
+	logo 								blob 	 default empty_blob(),
 	lema  							varchar2(40) not null,
 	refugio_alterno_id  number(10,0) not null,
 	constraint refugio_pk primary key(centro_operativo_id),
@@ -160,7 +160,7 @@ create table mascota(
 	folio 				   		  varchar2(8)  		not null,
 	fecha_ingreso      	  	date  default sysdate 	not null,
 	fecha_estatus      	  	date 			    not null,
-	fecha_nacimiento   	  	date 			    not null,
+	fecha_nacimiento   	  	date 			    not null, -- Esto debe ser null
 	causa_muerte 		   		varchar2(40) 	 	null, --esto deberia ser null
 	estatus_mascota_id  	number(10,0) 		not null,
 	tipo_mascota_id 	  	number(10,0) 		not null,
