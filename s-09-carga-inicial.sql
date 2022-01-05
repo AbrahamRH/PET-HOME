@@ -15,14 +15,37 @@ prompt Llenando datos para centros operativos
 insert into centro_operativo(centro_operativo_id, nombre, direccion, latitud, longitud, es_refugio, es_clinica, es_oficina ) 
                       values(1, 'PET-HOME La loma', 'Calle 1 #128, Colonia X Estado Y', 18.99, -98.04, 0,1,1);
 
+insert into clinica(centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia)
+                    values(1, '09:00 AM', '18:30 PM', 2221458780, 911);
+
+insert into oficina(centro_operativo_id, persona_moral_rfc, firma_electronica, responsable_nombre, responsable_ap_pat, responsable_ap_mat)
+                    values(1, 'RRXXGGHHH!!!', empty_blob(), 'Juan', 'Martinez','Perez');
+
+
+----------
+
 insert into centro_operativo(centro_operativo_id, nombre, direccion, latitud, longitud, es_refugio, es_clinica, es_oficina ) 
                       values(2, 'Oficina PET-HOME Plaza X', 'Av. 23 #1024, Colonia Z, Estado Y', 20.99, -99.04, 0,0,1);
+
+insert into oficina(centro_operativo_id, persona_moral_rfc, firma_electronica, responsable_nombre, responsable_ap_pat, responsable_ap_mat)
+                    values(2, 'AAXXGGHHH!!!', empty_blob(), 'Pedro', 'Hernandez','Perez');
+
+-----------
+
 
 insert into centro_operativo(centro_operativo_id, nombre, direccion, latitud, longitud, es_refugio, es_clinica, es_oficina ) 
                       values(3, 'Clinica PET-HOME Circuito Interior', 'Pino Suarez #23, Colonia A Estado Y', 19.051, -98.06, 0,1,0);
 
+
+insert into clinica(centro_operativo_id, hora_inicio, hora_fin, telefono_atencion, telefono_emergencia)
+                    values(3, '10:00 AM', '19:40 PM', 5567879032, 911);
+
+-----------
 insert into centro_operativo(centro_operativo_id, nombre, direccion, latitud, longitud,es_refugio, es_clinica, es_oficina ) 
                       values(4, 'Refugio PET-HOME El Valle', 'Calle 43 #256, Colonia X Estado Y', 19.47, -97.67, 1,0,0);
+
+insert into refugio(centro_operativo_id, numero_de_registro, lema, refugio_alterno_id)
+                     values(4,'12345678','Cuidado con el perro!', 4);
 
  
 prompt Llenando datos para cliente
