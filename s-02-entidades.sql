@@ -68,9 +68,10 @@ create table refugio
 (
 	centro_operativo_id number(10,0) not null,
 	numero_de_registro  varchar2(8)  not null,
+	capacidad_maxima 	number(5,0) not null,
 	logo 								blob 	 default empty_blob(),
 	lema  							varchar2(40) not null,
-	refugio_alterno_id  number(10,0) not null,
+	refugio_alterno_id  number(10,0) null,									-- esto tambien deberia ser null
 	constraint refugio_pk primary key(centro_operativo_id),
 	constraint refugio_registro_uk unique(numero_de_registro),
 	constraint centro_operativo_id_fk foreign key(centro_operativo_id)
@@ -106,8 +107,8 @@ create table oficina(
 -- CLINICA
 create table clinica(
 	centro_operativo_id number(10,0) not null,
-	hora_inicio 				date 		 not null,
-	hora_fin 						date 		 not null,
+	hora_inicio 				varchar2(20) 		 not null,
+	hora_fin 						varchar2(20) 		 not null,
 	telefono_atencion   varchar2(10) not null,
 	telefono_emergencia varchar2(10) not null,
 	constraint clinica_pk primary key(centro_operativo_id),
