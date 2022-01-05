@@ -44,8 +44,8 @@ insert into clinica(centro_operativo_id, hora_inicio, hora_fin, telefono_atencio
 insert into centro_operativo(centro_operativo_id, nombre, direccion, latitud, longitud,es_refugio, es_clinica, es_oficina ) 
                       values(4, 'Refugio PET-HOME El Valle', 'Calle 43 #256, Colonia X Estado Y', 19.47, -97.67, 1,0,0);
 
-insert into refugio(centro_operativo_id, numero_de_registro, lema, refugio_alterno_id)
-                     values(4,'12345678','Cuidado con el perro!', 4);
+insert into refugio(centro_operativo_id, numero_de_registro, capacidad_maxima ,lema, refugio_alterno_id)
+                     values(4,'12345678',200,'Cuidado con el perro!', 4);
 
  
 prompt Llenando datos para cliente
