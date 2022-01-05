@@ -45,12 +45,11 @@ select *
 from centro
 where es_oficina = 1;
 
--- Seleccionar la ultima 
 select rm.empleado_id,m.mascota_id, m.nombre, rm.foto_mascota,
-  rm.fecha_revision, count(*)
+  rm.fecha_revision
 from revision_mascota rm
 join mascota m
-on rm.mascota_id = m.mascota_id
+on rm.mascota_id = m.mascota_id;
 group by rm.empleado_id,m.mascota_id, m.nombre, rm.foto_mascota, rm.fecha_revision;
 
 -- Utilizando una tabla temporal
@@ -59,3 +58,12 @@ group by rm.empleado_id,m.mascota_id, m.nombre, rm.foto_mascota, rm.fecha_revisi
 -- y si son oficinas se necesita el nombre del responsable
 select nombre, direccion, lema, telefono_emergencia, responsable_nombre
 from centros_operativos;
+
+		select m.mascota_id, m.nombre, m.fecha_ingreso,
+			t.nombre_tipo, t.nivel_cuidado, e.descripcion as estatus,
+			o.descripcion as origen
+		from mascota m, tipo_mascota t, estatus_mascota e, origen o
+		where m.tipo_mascota_id = t.tipo_mascota_id
+		and m.estatus_mascota_id = e.estatus_mascota_id
+		and o.origen_id = m.origen_id;
+

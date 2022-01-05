@@ -23,7 +23,7 @@ v_dest_length number;
 v_nombre_archivo varchar2(50);
 
 begin 
-  for v_index in p_mascota_id..p_auto_id+p_num_imagenes loop
+  for v_index in p_mascota_id..p_mascota_id+p_num_imagenes loop
   v_nombre_archivo := 'pet-' || v_index || '.jpg';
   dbms_output.put_line('Cargando foto para' || v_nombre_archivo);
 
