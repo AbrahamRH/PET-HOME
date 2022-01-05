@@ -37,16 +37,18 @@
 	-	~~prueba para segundo trigger tipo row level~~
 	-	~~prueba para compund trigger~~
 
-- [ ] s-13-p
-	-	procedimineto mas complejos que insersion a la tabla mascota
-	-	posible procedimiento al relizar la adopción? o exportar datos:
+- [x] s-13-p
+	-	~~procedimineto mas complejos que insersion a la tabla mascota~~
+	-	~~posible procedimiento al relizar la adopción? o exportar datos~~
 	
-	-	"Se requiere exportar los datos a CSV de cada revision de mascota, con el fin de evaluar el desempeño del empleado que realizó la revisión. "
-	posiblemente aqui podamos utilizar cursores.
+	-	~~"Se requiere exportar los datos a CSV de cada revision de mascota, con el fin de evaluar el desempeño del empleado que realizó la revisión. "
+	posiblemente aqui podamos utilizar cursores.~~
 
 
 - [ ] s-14
-	-	prueba para el procedimiento mas complejo
+	-	~~prueba para procedimiento 1~~
+	-	~~prueba para procedimiento 2~~
+	-	prueba para procedimiento 3
 
 - [x] s-15-fx
 	-	~~función para el calculo de la nómina (por centro operativo) --> usar cursor~~
