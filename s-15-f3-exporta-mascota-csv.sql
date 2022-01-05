@@ -24,15 +24,14 @@ begin
 		raise_application_error(-20006,'ERROR: El archivo ' || p_archivo
 		|| ' se encuentra abierto');
 	end if;
---	for m in cur_mascotas loop
---		v_dato := m.mascota_id || ',' || m.nombre || ','
---			|| m.fecha_ingreso || ',' || m.nombre_tipo || ','
---			|| m.nivel_cuidado || ',' || m.estatus || ','
---			|| m.origen;
---		utl_file.put(v_archivo, v_dato);
---	end loop;
---	utl_file.fclose(v_archivo);
---	return true;
+	for m in cur_mascotas loop
+		v_dato := m.mascota_id || ',' || m.nombre || ','
+			|| m.fecha_ingreso || ',' || m.nombre_tipo || ','
+			|| m.nivel_cuidado || ',' || m.estatus || ','
+			|| m.origen;
+		utl_file.put_line(v_archivo, v_dato);
+	end loop;
+	utl_file.fclose(v_archivo);
   return true;
 	null;
 end;
