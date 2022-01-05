@@ -16,7 +16,8 @@ create or replace function exporta_mascota_csv(
 		from mascota m, tipo_mascota t, estatus_mascota e, origen o
 		where m.tipo_mascota_id = t.tipo_mascota_id
 		and m.estatus_mascota_id = e.estatus_mascota_id
-		and o.origen_id = m.origen_id;
+		and o.origen_id = m.origen_id
+		order by m.mascota_id asc;
 begin
 	if utl_file.is_open(v_archivo) = false then
 		v_archivo := utl_file.fopen(upper(p_directorio),p_archivo,'w',32767);
