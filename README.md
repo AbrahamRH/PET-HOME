@@ -3,16 +3,16 @@
 ## TODO por scripts:
 
 - [x] s-02-entidades
- 	-	creacion de la columna virtual para el campo edad de la entidad mascota. 
+ 	-	~~creacion de la columna virtual para el campo edad de la entidad mascota. ~~
 
- 	-	Si se agrega el campo edad, es necesario modificar el modelo, tal vez en una vista sea posible. 
+ 	-~~ Si se agrega el campo edad, es necesario modificar el modelo, tal vez en una vista sea posible. ~~
 
 	-	forma de implementar un defult
 
 			modificar el tipo de dato del modelo, de la tabla mascota
 
 - [x] s-03-tablas-temporales
-	-	verificar su funcionamiento
+	-	~~verificar su funcionamiento~~
 
 - [ ] s-09-carga-inicial
 	-	~~Poblar los centros operativos~~
@@ -21,10 +21,10 @@
 	- Poblar tablas temporales
 
 
-- [ ] s-10-consultas
+- [x] s-10-consultas
 	-	~~Consulta que involucre un: tabla temporal~~
-	- Revisar primera consulta (No regresa registros)
-	- Revisar penultima consulta utilizando un BLOB
+	- ~~Revisar primera consulta (No regresa registros)~~
+	- ~~Revisar penultima consulta utilizando un BLOB~~
 
 - [x] s-11-tr
 	-	~~segundo trigger tipo row level.~~
