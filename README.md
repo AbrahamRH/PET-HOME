@@ -45,10 +45,10 @@
 	posiblemente aqui podamos utilizar cursores.~~
 
 
-- [ ] s-14
+- [x] s-14
 	-	~~prueba para procedimiento 1~~
 	-	~~prueba para procedimiento 2~~
-	-	prueba para procedimiento 3
+	-	~~prueba para procedimiento 3~~
 
 - [x] s-15-fx
 	-	~~función para el calculo de la nómina (por centro operativo) --> usar cursor~~
