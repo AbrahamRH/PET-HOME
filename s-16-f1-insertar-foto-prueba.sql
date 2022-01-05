@@ -4,9 +4,11 @@
 -- 									función insertar_foto
 
 
-Prompt  ===========================
+Prompt  =====================================================
+Prompt
 Prompt  Prueba de la función del script s-15-f1-insertar-foto
-Prompt  ===========================
+Prompt
+Prompt  =====================================================
 
 !cp -r ./fotos/ /tmp/
 !chmod 777 /tmp/fotos

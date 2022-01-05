@@ -3,7 +3,6 @@
 --@Descripción:     (s-15-f3-exporta-mascota-csv) - funcion para exportar la 
 -- 									tabla mascota en un archivo csv existente
 
-set serveroutput on
 create or replace function exporta_mascota_csv(
 	p_directorio varchar,
 	p_archivo varchar
@@ -20,7 +19,7 @@ create or replace function exporta_mascota_csv(
 		and o.origen_id = m.origen_id;
 begin
 	if utl_file.is_open(v_archivo) = false then
-		v_archivo := utl_file.fopen(p_directorio,p_archivo,'w',32767);
+		v_archivo := utl_file.fopen(upper(p_directorio),p_archivo,'w',32767);
 	else
 		raise_application_error(-20006,'ERROR: El archivo ' || p_archivo
 		|| ' se encuentra abierto');
