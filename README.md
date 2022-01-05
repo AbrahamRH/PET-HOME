@@ -69,3 +69,5 @@
 		- fecha_nacimiento
 	- Clinica
 		- Hora inicio y fin deben ser varchar
+	- Empleado
+		- cambiar a 'sueldo' en el modelo
