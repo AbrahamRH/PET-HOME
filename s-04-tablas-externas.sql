@@ -4,7 +4,7 @@
 -- 								  para los donativos de otros lugares
 
 Prompt conectandose como sys
-connect sys as sysdba
+connect sys/system as sysdba
 
 Prompt creando directorio tmp_dir
 create or replace directory tmp_dir as '/tmp/base_externa/';
