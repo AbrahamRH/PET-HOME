@@ -11,21 +11,19 @@ prompt ====================================================
 
 
 !mkdir -p /tmp/archivos
-!chmod 777 /tmp/archivos
 !touch /tmp/archivos/mascotas_pethome.csv
+!chmod 777 /tmp/archivos
 
 connect sys/system as sysdba
-create or replace directory archivos_csv as '/tmp/archivos';
-grant read, write on directory archivos_csv to rol_admin;
-
+create or replace directory csv_dir as '/tmp/archivos';
+grant read, write on directory csv_dir to public;
 connect rj_proy_admin/rj_admin;
 
 set serveroutput on
 declare
 	v_return_value boolean;
 begin 
-	dbms_output.put_line('Entre');
-	v_return_value := exporta_mascota_csv('ARCHIVOS_CSV','mascotas_pethome.csv');
+	v_return_value := exporta_mascota_csv('csv_dir','mascotas_pethome.csv');
 	if v_return_value = true then
 		dbms_output.put_line('OK, se creo el archivo mascotas_pethome.csv');
 	else

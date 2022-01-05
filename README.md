@@ -48,20 +48,22 @@
 - [ ] s-14
 	-	prueba para el procedimiento mas complejo
 
-- [ ] s-15-fx
-	-	función para el calculo de la nómina (por centro operativo) --> usar cursor
-	- función que exporta mascota (join de mascota con revisiones) para un csv
+- [x] s-15-fx
+	-	~~función para el calculo de la nómina (por centro operativo) --> usar cursor~~
+	- ~~función que exporta mascota (join de mascota con revisiones) para un csv~~
 	-	~~funcion que inserte leer una foto y se obtenga un objeto blob para insertar en cualquier campo que utilice un blob (?)~~
 
-- [ ] s-16-fx 
-	- Prueba func1
-	- Prueba func2
+- [x] s-16-fx 
+	- ~~Prueba func1~~
+	- ~~Prueba func2~~
 	-	~~Prueba func3~~
 
-- [ ] s-19-cur
-	-	emplear cursores, en cualquier otro lado, o en este mismo script particular
+- [x] s-19-cur
+	-	~~emplear cursores, en cualquier otro lado, o en este mismo script particular~~
 	
 - [ ] Errores modelo
 	- Mascota
 		- Causa muerte
 		- fecha_nacimiento
+	- Clinica
+		- Hora inicio y fin deben ser varchar
