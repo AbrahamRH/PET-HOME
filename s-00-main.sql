@@ -73,4 +73,7 @@ prompt Compilando funciones
 
 @s-13-p-revision-mascota.sql
 
+prompt Compilando archivo con LOB
+@s-17-lob-agregar-imagen-mascota.sql
+
 prompt Listo!
