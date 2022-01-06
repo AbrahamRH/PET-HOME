@@ -7,6 +7,10 @@ set serveroutput on;
 declare
   v_tamaño_foto
 begin 
+
+
+  agregar_imagen_mascota(7,10);
+
   select dbms_length(foto_mascota) as tamaño_foto 
   into v_tamaño_foto
   from revision_mascota
