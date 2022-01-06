@@ -19,9 +19,9 @@ begin
 	if v_count > 0 then 
 		dbms_output.put_line('Eliminando usuarios existentes');
 		execute immediate 'drop user rj_proy_admin cascade';
-		execute immediate 'drop user rj_proy_invitado cascade';
+		execute immediate 'drop user rj_proy_user cascade';
 		execute immediate 'drop role rol_admin';
-		execute immediate 'drop role rol_invitado';
+		execute immediate 'drop role rol_user';
 	end if;
 end;
 /
