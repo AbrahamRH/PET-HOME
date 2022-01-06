@@ -6,10 +6,10 @@
 Prompt conectandose como sys
 connect sys/system as sysdba
 
-Prompt creando directorio tmp_dir
-create or replace directory tmp_dir as '/tmp/base_externa/';
+Prompt creando directorio ext_dir
+create or replace directory ext_dir as '/tmp/base_externa/';
 
-grant read, write on directory tmp_dir to rj_proy_admin;
+grant read, write on directory ext_dir to rj_proy_admin;
 
 Prompt conectandose al usuario administrador
 connect rj_proy_admin/rj_admin
@@ -21,11 +21,11 @@ create table donativo_ext (
 )
 organization external(
 	type oracle_loader 
-	default directory tmp_dir
+	default directory ext_dir
 	access parameters (
 		records delimited by newline
-		badfile tmp_dir:'donativo_ext_bad.log'
-		logfile tmp_dir:'mascota_ext_.log'
+		badfile ext_dir:'donativo_ext_bad.log'
+		logfile ext_dir:'mascota_ext_.log'
 		fields terminated by ','
 		lrtrim
 		missing field values are null (
