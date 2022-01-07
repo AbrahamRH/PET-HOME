@@ -17,7 +17,6 @@ create table centro_operativo
 	es_clinica 		    		number(1,0)   not null,
 	es_oficina 	    			number(1,0)   not null,
 	constraint centro_operativo_pk primary key(centro_operativo_id),
-	constraint centro_operativo_uk unique(codigo),
 	constraint centro_operativo_rol_chk check((es_refugio = 0 or es_refugio = 1)
 	and (es_oficina = 1 or es_oficina =  0) and (es_clinica = 0 or es_clinica = 1)),
 	constraint centro_operativo_clinica_refugio_chk check(
@@ -41,7 +40,6 @@ create table empleado
 	es_veterinario 	  	number(1,0)  not null,
 	centro_operativo_id number(10,0) not null,
 	constraint empleado_pk primary key(empleado_id),
-	constraint empleado_curp_uk unique(curp),
 	constraint centro_operativo_empleado_rol_chk check(
 		(es_administrativo = 0 or es_administrativo = 1) and (es_gerente = 1 
 		or es_gerente = 0) and (es_veterinario  = 0 or es_veterinario = 1)
@@ -150,8 +148,7 @@ create table cliente(
 	usuario     varchar2(50) generated always 
 		as (nombre || '_' || substr(ap_paterno,1,1) || '_' || substr(ap_materno,1,1) ) virtual,
 	password    varchar2(40) not null,
-	constraint cliente_pk primary key(cliente_id),
-	constraint cliente_usuario_uk unique(usuario)
+	constraint cliente_pk primary key(cliente_id)
 );
 
 -- MASCOTA
