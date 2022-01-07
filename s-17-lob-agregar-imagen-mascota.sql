@@ -2,7 +2,7 @@
 --@Fecha creación:  2021-12-31
 --@Descripción:     Script que asigna una imagen al campo BLOB de mascota
 
-prompt Configurar Directorio de imaganes
+prompt Configurar Directorio de imágenes
 connect sys/system as sysdba
 create or replace directory fotos_dir as '/tmp/ProyectoFinal/mascotas';
 grant read, write on directory fotos_dir to rj_proy_admin;
