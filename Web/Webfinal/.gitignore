@@ -1,2 +1,2 @@
 #Ignorar cache de python
-WebFinal/__pycache__
+*.pyc
