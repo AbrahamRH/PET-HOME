@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Clinica </h1>
+    <h2> Nueva Revision-Mascota </h2>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %} 
+        
+        <label for=""> Mascota </label>
+        <input type="text" name="nombre">
+        <br>
+        <label for=""> Veterinario  </label>
+        <select name="veterinario" id='veterinario'>
+            <option value=""> Seleccionar </option>
+            {% for v in veterinarios %}
+                <option value="{{ v.0 }}">{{ v.1 }} </option>
+            {% endfor %}
+        </select>
+
+        <br>
+        <label for=""> Diagnostico</label>
+        <input type="text" name="diagnostico" id="diagnostico">
+        <br>
+        <label for=""> Foto Mascota</label>
+        <input type="file" name="foto" id="foto">
+        
+        <br>
+        <input type="submit" value="Guardar">
+
+
+    </form>
+
+    {{mensaje}}
+</body>
+</html>
