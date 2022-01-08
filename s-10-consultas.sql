@@ -17,13 +17,15 @@ and r.centro_operativo_id = c.centro_operativo_id;
 
 -- Se desea saber la fecha y el monto de la donacion más grande realizada y
 -- compararla con el promedio de la tabla externa
-select fecha_donativo, monto_donativo, avg(monto_donativo) promedio
+select fecha_donativo, monto_donativo, (
+  select avg(monto_donativo) 
+  from donativo_ext
+) promedio
 from donativo_ext
 where monto_donativo = (
 	select max(monto_donativo)
 	from donativo_ext
-)
-group by fecha_donativo, monto_donativo;
+);
 
 --Consulta utilizando una vista
 -- Se desea obtener el nombre completo, id y sueldo del gerente con mayor sueldo mensual
@@ -45,12 +47,6 @@ select *
 from centro
 where es_oficina = 1;
 
-select rm.empleado_id,m.mascota_id, m.nombre, rm.foto_mascota,
-  rm.fecha_revision
-from revision_mascota rm
-join mascota m
-on rm.mascota_id = m.mascota_id;
-
 -- Utilizando una tabla temporal
 -- Se necesita obtener información de todos los centros operativos, su nombre,
 -- direccion, si son refugios su lema, si son clínicas su telefono de emergencia 
@@ -65,3 +61,15 @@ from mascota m, tipo_mascota t, estatus_mascota e, origen o
 where m.tipo_mascota_id = t.tipo_mascota_id
 and m.estatus_mascota_id = e.estatus_mascota_id
 and o.origen_id = m.origen_id;
+
+select m.nombre mascota , rm.fecha_revision, rm.diagnostico,
+  rm.foto_mascota, e.nombre empleado
+from mascota m
+join revision_mascota rm
+  on m.mascota_id = rm.mascota_id
+join empleado e
+  on e.empleado_id = rm.empleado_id;
+  
+
+
+
