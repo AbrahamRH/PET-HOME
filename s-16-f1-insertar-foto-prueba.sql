@@ -16,7 +16,7 @@ Prompt  =====================================================
 connect sys/system as sysdba
 create or replace directory tmp_dir as '/tmp/fotos';
 
-grant read, write on directory tmp_dir to rol_admin;
+grant read, write on directory tmp_dir to rj_proy_admin;;
 
 connect rj_proy_admin/rj_admin;
 

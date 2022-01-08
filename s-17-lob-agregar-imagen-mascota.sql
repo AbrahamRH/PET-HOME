@@ -3,6 +3,8 @@
 --@Descripción:     Script que asigna una imagen al campo BLOB de mascota
 
 prompt Configurar Directorio de imaganes
+!cp -r ./fotos/ /tmp/
+!chmod 777 /tmp/fotos
 connect sys/system as sysdba
 create or replace directory fotos_dir as '/tmp/ProyectoFinal/mascotas';
 grant read, write on directory fotos_dir to rj_proy_admin;
@@ -25,18 +27,18 @@ v_nombre_archivo varchar2(50);
 begin 
   for v_index in p_mascota_id..p_mascota_id+p_num_imagen loop
   v_nombre_archivo := 'pet-' || v_index || '.jpg';
-  dbms_output.put_line('Cargando foto para' || v_nombre_archivo);
+  dbms_output.put_line('Cargando foto para ' || v_nombre_archivo);
 
   --Corroborando que existan los archivos:
-  v_bfile := bfilename('FOTOS_DIR', v_nombre_archivo);
+  v_bfile := bfilename('TMP_DIR', v_nombre_archivo);
   
   if dbms_lob.fileexists(v_bfile) = 0 THEN
-    raise_application_error(-20001, 'El archivo' || v_nombre_archivo || 'no existe.');
+    raise_application_error(-20001, 'El archivo ' || v_nombre_archivo || ' no existe.');
   end if;
 
   --Abrir el archivo
   if dbms_lob.isopen(v_bfile) = 1 THEN
-    raise_application_error(-20001, 'El archivo ' || v_nombre_archivo || 'está abierto. No se puede usar');
+    raise_application_error(-20001, 'El archivo ' || v_nombre_archivo || ' está abierto. No se puede usar');
   end if;
 
   --abriendo archivo
@@ -72,7 +74,7 @@ begin
   v_dest_length := dbms_lob.getlength(v_blob);
 
   if v_dest_length<>v_src_length THEN
-    raise_application_error(-20001, 'El archivo' || v_nombre_archivo || 'no se cargó correctamente');
+    raise_application_error(-20001, 'El archivo ' || v_nombre_archivo || ' no se cargó correctamente');
   end if;
   end loop;  
 

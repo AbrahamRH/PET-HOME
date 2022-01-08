@@ -11,7 +11,7 @@ declare
 
 begin
 
-  revision_mascota_ref(1,5,'En buena condición', c_filename, v_revision_id);
+  sp_revision_mascota_ref(1,5,'En buena condición', c_filename, v_revision_id);
 
   select foto_mascota into v_blob
   from revision_mascota

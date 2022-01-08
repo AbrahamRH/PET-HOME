@@ -2,14 +2,12 @@
 --@Fecha creación:  2022-04-01
 --@Descripción:     Script que realiza las insersiones correspondientes para registrar
 --                  una nueva revisión para una mascota en refugio.
+!cp -r ./fotos/ /tmp/
+!chmod 777 /tmp/fotos
 connect sys/system as sysdba
 create or replace directory tmp_dir as '/tmp/fotos';
 
-grant read, write on directory tmp_dir to rol_admin;
-
-connect rj_proy_admin/rj_admin;
-
-create or replace procedure revision_mascota_ref 
+create or replace procedure sp_revision_mascota_ref 
 ( p_mascota_id in number, p_veterinario_id in number,
   p_diagnostico in varchar2, p_filename in varchar2, o_revID out number) is
 
@@ -35,6 +33,7 @@ begin
   end if;
 
   o_revID := v_indice;
+  commit;
 
 end; 
 /
