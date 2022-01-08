@@ -3,6 +3,7 @@ from django.shortcuts import render
 
 from django.db import connection
 import cx_Oracle
+import base64
 
 # Create your views here.
 
@@ -10,7 +11,24 @@ def home(request):
     return HttpResponse('Hello, World!')
 
 def Mascota(request):
+
+    fotos_mascota = mostrar_revisiones()
+
+
+    lista_mascotas = []
+
+    for i in fotos_mascota:
+        info = {
+             'data': i,
+             'foto': str( base64.b64encode(i[2].read() ), 'utf-8' )
+        }
+        lista_mascotas.append(info)
+
+
+
+
     data = {
+        'revisiones': lista_mascotas,
         'veterinarios':mostrar_veterinarios(),
     }
     
@@ -20,11 +38,14 @@ def Mascota(request):
         veterinario_id = request.POST.get('veterinario')
         diagnostico = request.POST.get('diagnostico')
         foto = request.FILES['foto'].read()
+
+        print(veterinario_id)
+
         salida = nueva_revision(mascota, veterinario_id, diagnostico, foto)
-        if salida > 0 :
+        if salida == 1 :
             data['mensaje'] = 'Agregado Correctamente!'
         else:
-            data['mensaje'] = 'No se ha guardado...'
+            data['mensaje'] = 'Hubo un error y se ha guardado el registro...'
 
 
 
@@ -52,6 +73,15 @@ def mostrar_veterinarios():
     
     return salida
 
+def mostrar_revisiones():
+    django_cursor = connection.cursor()
+    cursor = django_cursor.connection.cursor()
+
+    salida = []
+    for row in cursor.execute('select mascota_id, diagnostico, foto_mascota  from revision_mascota'):
+        salida.append(row)
+
+    return salida
 
 def nueva_revision(mascota, veterinario, diagnostico, foto):
     django_cursor = connection.cursor()
@@ -59,6 +89,6 @@ def nueva_revision(mascota, veterinario, diagnostico, foto):
 
     salida = cursor.var(cx_Oracle.NUMBER)
 
-    cursor.callproc("REVISION_MASCOTA_REF",[mascota,veterinario,diagnostico,foto,salida])
+    cursor.callproc("SP_NUEVA_REVISION_MASCOTA_WEB",[mascota,veterinario,diagnostico,foto,salida])
 
     return salida.getvalue()

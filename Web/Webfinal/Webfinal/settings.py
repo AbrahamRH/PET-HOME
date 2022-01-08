@@ -31,13 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'core',
+    'material',
+    'material.admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
+    
     
 ]
 
@@ -81,6 +84,14 @@ DATABASES = {
         'NAME': 'CURSOBD',
         'USER': 'rj_proy_admin',
         'PASSWORD': 'rj_admin',
+        'HOST': '127.0.1.1',
+        'PORT': '1521',
+    },
+    'user': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'CURSOBD',
+        'USER': 'rj_proy_user',
+        'PASSWORD': 'rj_user',
         'HOST': '127.0.1.1',
         'PORT': '1521',
     }
