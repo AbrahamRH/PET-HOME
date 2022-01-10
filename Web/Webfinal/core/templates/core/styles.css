@@ -1,0 +1,48 @@
+
+select
+{
+    width:150px;
+    margin-left: 50px;
+}
+
+i{
+    margin-left: 20px;
+    font-size: 50px;
+    padding-right: 3%;
+}
+input[type="text"]
+{
+    box-sizing: border-box;
+    padding-right: 10%;
+    width: auto;
+}
+
+label
+{
+    margin-left: 20px;
+    font-size: large;
+}
+
+button
+{
+    margin-left: 20px;
+}
+
+h1
+{
+    font-size: 45px;
+}
+
+h2
+{
+    font-size: 30px;
+}
+
+.logo {
+    font-size: 200%;
+    margin: 0;
+}
+
+select {
+    padding-left: 20px !important;
+}
