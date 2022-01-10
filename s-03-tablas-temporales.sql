@@ -5,11 +5,15 @@
 -- CENTROS_OPERATIVOS
 create global temporary table centros_operativos on commit preserve rows as 
 (
-	select * 
-	from centro_operativo
-	natural join refugio
-	natural join clinica
-	natural join oficina
+	select co.*, r.capacidad_maxima, r.lema, r.numero_de_registro, c.hora_fin, 
+	c.hora_inicio, c.telefono_atencion, c.telefono_emergencia, o.responsable_nombre, 
+	o.responsable_ap_pat, o.persona_moral_rfc
+		from centro_operativo co, refugio r, clinica c, oficina o
+		where co.centro_operativo_id = r.centro_operativo_id (+)
+		and co.centro_operativo_id = r.centro_operativo_id (+)
+		and co.centro_operativo_id = c.centro_operativo_id (+)
+		and co.centro_operativo_id = o.centro_operativo_id (+)
+
 );
 
 -- NOMINA_EMPLEADOS

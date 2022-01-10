@@ -165,11 +165,11 @@ insert into estatus_mascota(estatus_mascota_id, descripcion) values(7, 'FALLECID
 
 prompt llenando tipo mascota
 --Tipo Mascota
-insert into tipo_mascota(tipo_mascota_id, nombre_tipo,  nivel_cuidado) values(1, 'ave', 3);
-insert into tipo_mascota(tipo_mascota_id, nombre_tipo,  nivel_cuidado) values(2, 'perro', 2);
-insert into tipo_mascota(tipo_mascota_id, nombre_tipo,  nivel_cuidado) values(3, 'gato', 3);
-insert into tipo_mascota(tipo_mascota_id, nombre_tipo,  nivel_cuidado) values(4, 'hamster', 4);
-insert into tipo_mascota(tipo_mascota_id, nombre_tipo,  nivel_cuidado) values(5, 'ratón', 2);
+insert into tipo_mascota(tipo_mascota_id, nombre_tipo,  nivel_cuidado) values(1, 'Ave', 3);
+insert into tipo_mascota(tipo_mascota_id, nombre_tipo,  nivel_cuidado) values(2, 'Perro', 2);
+insert into tipo_mascota(tipo_mascota_id, nombre_tipo,  nivel_cuidado) values(3, 'Gato', 3);
+insert into tipo_mascota(tipo_mascota_id, nombre_tipo,  nivel_cuidado) values(4, 'Hamster', 4);
+insert into tipo_mascota(tipo_mascota_id, nombre_tipo,  nivel_cuidado) values(5, 'Ratón', 2);
 insert into tipo_mascota(tipo_mascota_id, nombre_tipo,  nivel_cuidado) values(6, 'Serpiente', 4);
 insert into tipo_mascota(tipo_mascota_id, nombre_tipo,  nivel_cuidado) values(7, 'Tortuga', 3);
 insert into tipo_mascota(tipo_mascota_id, nombre_tipo,  nivel_cuidado) values(8, 'Reptil', 2);
@@ -239,7 +239,7 @@ insert into mascota (mascota_id, nombre, folio, fecha_ingreso, fecha_estatus, fe
 insert into mascota (mascota_id, nombre, folio, fecha_ingreso, fecha_estatus, fecha_nacimiento, causa_muerte, estatus_mascota_id, tipo_mascota_id, centro_operativo_id, origen_id, cliente_id, donador_id) values (50, 'Yóu', 'I25016UB', to_date('08/02/2020','dd/mm/yyyy'), to_date('21/11/2021','dd/mm/yyyy'), to_date('30/12/2017','dd/mm/yyyy'), null, 5, 4, 4, 1, 14, null);
 
 
---Adopcion
+--Revision Mascoa
 
 
 

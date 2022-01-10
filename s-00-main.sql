@@ -35,9 +35,6 @@ connect rj_proy_admin/rj_admin
 prompt Creando objetos
 @s-02-entidades.sql
 
-prompt Creando tablas temporales
-@s-03-tablas-temporales.sql
-
 prompt Creando tablas externas
 @s-04-tablas-externas.sql
 
@@ -50,11 +47,14 @@ prompt Creando índices
 prompt Creando sinónimos
 @s-07-sinonimos.sql
 
-prompt Creando vistas
-@s-08-vistas.sql
-
 prompt Poblando tablas
 @s-09-carga-inicial.sql
+
+prompt Creando tablas temporales
+@s-03-tablas-temporales.sql
+
+prompt Creando vistas
+@s-08-vistas.sql
 
 prompt Compilando triggers
 @s-11-tr-espera-15-dias.sql
