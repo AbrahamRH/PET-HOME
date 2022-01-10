@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'material/includes/material_css.html' %}
+    {% include 'material/includes/material_js.html' %}
+    {% load material_form %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div class="linea" style="height: 10px; background-color: #424242;"></div>
+    <div class="container">
+      <h2> Listado de mascotas en adopción </h2>
+      <hr>
+      <table> 
+        <tr>
+          <th> Nombre </th>
+          <th> Fecha </th>
+          <th> Tipo </th>
+          <th> Estatus </th>
+        </tr>
+        
+        {% for M in Mascotas %}
+        <tr>
+          <td> {{ M.0 }} </td>
+          <td> {{ M.1 }} </td>
+          <td> {{ M.2 }} </td>
+          <td> {{ M.3 }} </td>
+          
+          
+        </tr>
+      {% endfor %} 
+      
+    </table>
+    
+    
+      
+    </div>
+    
+</body>
+</html>

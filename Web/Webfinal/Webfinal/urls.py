@@ -22,6 +22,7 @@ from core import views
 urlpatterns = [
     
     #url(r'^$', views.home, name='home'),
+    url(r'^$', views.Mascota, name='Mascota'),
     url(r'^admin/', admin.site.urls),
     path('', include('core.urls')),
 ]

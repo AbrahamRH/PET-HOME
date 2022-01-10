@@ -10,6 +10,15 @@ import base64
 def home(request):
     return HttpResponse('Hello, World!')
 
+def Refugio(request):
+
+    data = {
+        'Mascotas' : en_adopcion(),
+    }
+
+    print(data)
+    return render(request, 'core/Refugio.html', data )
+
 def Mascota(request):
 
     fotos_mascota = mostrar_revisiones()
@@ -51,8 +60,8 @@ def Mascota(request):
 
     return render(request, 'core/Mascota.html', data )
 
-
-#Metodos auxiliares para las consultas
+#Metodos de la Clinica
+    #Metodos auxiliares para las consultas, en el refugio
 def listado_productos():
     django_cursor = connection.cursor()
     cursor = django_cursor.connection.cursor()
@@ -92,3 +101,15 @@ def nueva_revision(mascota, veterinario, diagnostico, foto):
     cursor.callproc("SP_NUEVA_REVISION_MASCOTA_WEB",[mascota,veterinario,diagnostico,foto,salida])
 
     return salida.getvalue()
+
+#Métodos para el refugio
+def en_adopcion():
+    django_cursor = connection.cursor()
+    cursor = django_cursor.connection.cursor()
+
+    salida = []
+
+    for row in cursor.execute('select * from v_mascotas_en_adopcion'):
+        salida.append(row)
+
+    return salida
