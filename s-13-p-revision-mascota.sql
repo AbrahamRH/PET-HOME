@@ -7,6 +7,8 @@
 connect sys/system as sysdba
 create or replace directory tmp_dir as '/tmp/fotos';
 
+connect rj_proy_admin/ rj_admin;
+
 create or replace procedure sp_revision_mascota_ref 
 ( p_mascota_id in number, p_veterinario_id in number,
   p_diagnostico in varchar2, p_filename in varchar2, o_revID out number) is
