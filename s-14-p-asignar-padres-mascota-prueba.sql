@@ -12,7 +12,7 @@ declare
   begin
 
   --Llamamos al procedimiento 
-  asignar_padres_mascota(c_padre_id, c_madre_id, c_hijo_id);
+  sp_asignar_padres_mascota(c_padre_id, c_madre_id, c_hijo_id);
   
  ---commit al final de las operaciones, todo se ejecutó correctamente.
   dbms_output.put_line('OK, No hubo errores');

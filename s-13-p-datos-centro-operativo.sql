@@ -5,7 +5,7 @@
 
 set serveroutput on
 
-create or replace procedure p_co_obtener_datos
+create or replace procedure sp_co_obtener_datos
 (p_co_id in number, p_cadena_salida out varchar ) is
 
   cursor cur_centro_operativo is

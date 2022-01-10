@@ -3,7 +3,7 @@
 --@Descripción:     Script que añade los padres a una mascota nacida en
 --                  en el refugio.
 
-create or replace procedure asignar_padres_mascota
+create or replace procedure sp_asignar_padres_mascota
 (p_padre_id in number, p_madre_id in number, p_hijo_id in number, 
  p_centro_nacimiento_id in number) is 
 
