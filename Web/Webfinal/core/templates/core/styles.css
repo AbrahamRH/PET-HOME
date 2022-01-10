@@ -5,11 +5,13 @@ select
     margin-left: 50px;
 }
 
-i{
+i
+{
     margin-left: 20px;
     font-size: 50px;
     padding-right: 3%;
 }
+
 input[type="text"]
 {
     box-sizing: border-box;
@@ -36,13 +38,4 @@ h1
 h2
 {
     font-size: 30px;
-}
-
-.logo {
-    font-size: 200%;
-    margin: 0;
-}
-
-select {
-    padding-left: 20px !important;
 }

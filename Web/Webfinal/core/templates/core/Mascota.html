@@ -14,82 +14,109 @@
 <body background="">  
   <nav class="topbar">
     <div>
-      <span class"logo">PET HOME</span>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">PET-HOME</a>
+      </div>
     </div>
   </nav> 
-  <main class="container">
-    <h1> Clinica </h1>
+  <main>
+    <div class="container">
+      <h1> Clinica </h1>
     <hr>
     <h2> Registo de la revisión </h2>
     <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %} 
+      {% csrf_token %} 
        
-        <div class="row">
-            <div class="input-field col s10 offset-s1 required" id="">
-                <i class="material-icons prefix"> pets </i> <input type="text" id="mascota_id" name="nombre" >
-                <label for="mascota_id" > Mascotas </label>
-            </div> 
-        </div>
-        <br>
-        <div class="row">
-          <div class="input-field col s10 offset-s1 required" id="diagnosticoText">
-              <i class="material-icons prefix"> assignment </i> <input type="text" name="diagnostico" id="diagnostico">
-              <label for="diagnosticoText"> Diagnostico</label>
-          </div>
+      <div class="row">
+        <div class="input-field col s10 offset-s1 required" id="">
+          <i class="material-icons prefix"> pets </i> <input type="text" id="mascota_id" name="nombre" >
+          <label for="mascota_id" > Mascotas </label>
+        </div> 
       </div>
       <br>
-
+      <div class="row">
+        <div class="input-field col s10 offset-s1 required" id="diagnosticoText">
+          <i class="material-icons prefix"> assignment </i> <input type="text" name="diagnostico" id="diagnostico">
+          <label for="diagnosticoText"> Diagnostico</label>
+        </div>
+      </div>
+      <br>
+      
         <div class="row">
           <div class="input-field col s10 offset-s1 required" id="veterinario_id">
             <select name="veterinario" class="browser-default select-dropdown dropdown-trigger" id='veterinario' > 
-                <option value="" disabled selected> Veterinario </option>
-                  {% for v in veterinarios %}
-                      <option value="{{ v.0 }}"> {{ v.1 }} </option>
-                  {% endfor %}
-               </select>
-            </div>
+              <option value="" disabled selected> Veterinario </option>
+              {% for v in veterinarios %}
+              <option value="{{ v.0 }}"> {{ v.1 }} </option>
+              {% endfor %}
+            </select>
+          </div>
         </div>
         <br>
-        
         <div class="row">
-            <div class="input field col s6 offset-s3 required" id="FotoMascota">
-                <i class="material-icons prefix"> add_a_photo </i> <input type="file" name="foto" id="foto">
-            </div>
+          <div class="input field col s6 offset-s3 required" id="FotoMascota">
+            <i class="material-icons prefix"> add_a_photo </i> <input type="file" name="foto" id="foto">
+          </div>
         </div>
-        
         <br>
-        <button type="submit" class="btn waves-effect"> Guardar </button>
-    </form>
-
-    {{mensaje}}
+        <div class="row">
+          <button type="submit" class="btn col offset-s9"> Guardar 
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </form>
+      
+      {{mensaje}}
+    </div>
     <br>
-    <hr>
-    <h2> Listado de mascotas revisadas </h2>
-
-    <table> 
+    <div class="linea" style="height: 10px; background-color: #424242;"></div>
+    <div class="container">
+      <h2> Listado de mascotas revisadas </h2>
+      <hr>
+      <table> 
         <tr>
-            <th> Nombre </th>
-            <th> Diagnostico </th>
-            <th> Foto </th>
+          <th> Nombre </th>
+          <th> Diagnostico </th>
+          <th> Foto </th>
         </tr>
-
+        
         {% for R in revisiones %}
-            <tr>
-                <td> {{ R.data.0 }} </td>
-                <td> {{ R.data.1 }} </td>
-                <td> 
-                    {%if R.foto%}
-                        <img src="data:foto/jpg;base64, {{R.foto}}" width="250" height="250">
-                    {%endif%}
-                </td>
-
-            </tr>
-        {% endfor %} 
-
+        <tr>
+          <td> {{ R.data.0 }} </td>
+          <td> {{ R.data.1 }} </td>
+          <td> 
+            {%if R.foto%}
+            <img src="data:foto/jpg;base64, {{R.foto}}" width="250" height="250">
+            {%endif%}
+          </td>
+          
+        </tr>
+      {% endfor %} 
+      
     </table>
-
-
     
-  </main> 
-</body>
-</html>
+    
+      
+    </div>
+    </main> 
+  </body>
+
+
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Bienvenido a PetHome</h5>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-copyright">
+      <div class="container">
+      © PetHome S.A De C.V
+      <a class="grey-text text-lighten-4 right" href="#!">Centro operativo</a>
+      </div>
+    </div>
+  </footer>
+      
+  </html>
