@@ -5,108 +5,65 @@
     {% include 'material/includes/material_js.html' %}
     {% load material_form %}
     <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=>, initial-scale=1.0">
     <title>PET-HOME</title>
-
-
-    <style>
-        select
-        {
-            width:150px;
-            margin-left: 50px;
-        }
-        i{
-            margin-left: 20px;
-            font-size: 50px;
-            padding-right: 3%;
-        }
-        input[type="text"]
-        {
-            box-sizing: border-box;
-            padding-right: 10%;
-            width: auto;
-        }
-
-        label
-        {
-            margin-left: 20px;
-            font-size: large;
-        }
-
-        button
-        {
-            margin-left: 20px;
-        }
-
-        h1
-        {
-            font-size: 45px;
-        }
-
-        h2
-        {
-            font-size: 30px;
-        }
-
-    </style>
-
-
 </head>
-<body background="">
-        
+<body background="">  
+  <nav class="topbar">
+    <div>
+      <span class"logo">PET HOME</span>
     </div>
+  </nav> 
+  <main class="container">
     <h1> Clinica </h1>
-    <h2> Nueva Revision-Mascota </h2>
+    <hr>
+    <h2> Registo de la revisión </h2>
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %} 
        
         <div class="row">
-            <div class="input-field col s12 required" id="">
+            <div class="input-field col s10 offset-s1 required" id="">
                 <i class="material-icons prefix"> pets </i> <input type="text" id="mascota_id" name="nombre" >
                 <label for="mascota_id" > Mascotas </label>
             </div> 
         </div>
-
-        <div>
-            <div class="input-field col s10 required" id="veterinario_id">
-                <i class="material-icons prefix"> badge </i> 
-                    <select name="veterinario" class="browser-default" id='veterinario' > 
-                        <option value=""> Veterinario </option>
-                        {% for v in veterinarios %}
-                            <option value="{{ v.0 }}"> {{ v.1 }} </option>
-                        {% endfor %}
-                    </select>
-            </div>
-        </div>
-
         <br>
+        <div class="row">
+          <div class="input-field col s10 offset-s1 required" id="diagnosticoText">
+              <i class="material-icons prefix"> assignment </i> <input type="text" name="diagnostico" id="diagnostico">
+              <label for="diagnosticoText"> Diagnostico</label>
+          </div>
+      </div>
+      <br>
 
-        <div>
-            <div class="input-field col s12 required" id="diagnosticoText">
-                <i class="material-icons prefix"> assignment </i> <input type="text" name="diagnostico" id="diagnostico">
-                <label for="diagnosticoText"> Diagnostico</label>
+        <div class="row">
+          <div class="input-field col s10 offset-s1 required" id="veterinario_id">
+            <select name="veterinario" class="browser-default select-dropdown dropdown-trigger" id='veterinario' > 
+                <option value="" disabled selected> Veterinario </option>
+                  {% for v in veterinarios %}
+                      <option value="{{ v.0 }}"> {{ v.1 }} </option>
+                  {% endfor %}
+               </select>
             </div>
         </div>
+        <br>
         
-        <br>
-
-        <div>
-            <label for="FotoMascota"> Foto Mascota </label>
-            <div class="input field col s12 required" id="FotoMascota">
-                
+        <div class="row">
+            <div class="input field col s6 offset-s3 required" id="FotoMascota">
                 <i class="material-icons prefix"> add_a_photo </i> <input type="file" name="foto" id="foto">
-                
             </div>
         </div>
         
         <br>
-        <button type="submit" class="btn"> Guardar </button>
+        <button type="submit" class="btn waves-effect"> Guardar </button>
     </form>
 
     {{mensaje}}
-
+    <br>
+    <hr>
     <h2> Listado de mascotas revisadas </h2>
 
     <table> 
@@ -133,5 +90,6 @@
 
 
     
+  </main> 
 </body>
 </html>

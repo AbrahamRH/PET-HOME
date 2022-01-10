@@ -62,16 +62,15 @@ prompt Compilando triggers
 @s-11-tr-historico-estatus-mascota.sql
 @s-11-tr-maximo-adopciones.sql
 
-prompt Compilando procedimientos
-@s-13-p-asignar-padres-mascota.sql
-@s-13-p-datos-centro-operativo.sql
-@s-13-p-revision-mascota-web.sql
-
 prompt Compilando funciones
 @s-15-f1-insertar-foto.sql
 @s-15-f2-ingresos-mensuales.sql
 @s-15-f3-exporta-mascota-csv.sql
 
+prompt Compilando procedimientos
+@s-13-p-asignar-padres-mascota.sql
+@s-13-p-datos-centro-operativo.sql
+@s-13-p-revision-mascota-web.sql
 @s-13-p-revision-mascota.sql
 
 prompt Compilando archivo con LOB
