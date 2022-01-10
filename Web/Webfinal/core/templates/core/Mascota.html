@@ -21,16 +21,16 @@
   </nav> 
   <main>
     <div class="container">
-      <h1> Clinica </h1>
-    <hr>
-    <h2> Registo de la revisión </h2>
-    <form action="" method="POST" enctype="multipart/form-data">
+      <h1> Clínica </h1>
+      <hr>
+      <h2> Registo de la revisión </h2>
+      <form action="" method="POST" enctype="multipart/form-data">
       {% csrf_token %} 
        
       <div class="row">
         <div class="input-field col s10 offset-s1 required" id="">
           <i class="material-icons prefix"> pets </i> <input type="text" id="mascota_id" name="nombre" >
-          <label for="mascota_id" > Mascotas </label>
+          <label for="mascota_id" > ID Mascota</label>
         </div> 
       </div>
       <br>
@@ -41,7 +41,6 @@
         </div>
       </div>
       <br>
-      
         <div class="row">
           <div class="input-field col s10 offset-s1 required" id="veterinario_id">
             <select name="veterinario" class="browser-default select-dropdown dropdown-trigger" id='veterinario' > 
@@ -65,8 +64,11 @@
           </button>
         </div>
       </form>
-      
-      {{mensaje}}
+      <div class="row"> 
+        <h4 class="col s8 offset-s2">
+          {{mensaje}}
+        </h3>
+      </div>
     </div>
     <br>
     <div class="linea" style="height: 10px; background-color: #424242;"></div>
@@ -79,7 +81,6 @@
           <th> Diagnostico </th>
           <th> Foto </th>
         </tr>
-        
         {% for R in revisiones %}
         <tr>
           <td> {{ R.data.0 }} </td>
@@ -89,32 +90,23 @@
             <img src="data:foto/jpg;base64, {{R.foto}}" width="250" height="250">
             {%endif%}
           </td>
-          
         </tr>
       {% endfor %} 
-      
     </table>
-    
-    
-      
     </div>
     </main> 
   </body>
-
-
   <footer class="page-footer">
     <div class="container">
       <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Bienvenido a PetHome</h5>
-        </div>
+        <div class="col l6 s12"></div>
       </div>
     </div>
     
     <div class="footer-copyright">
       <div class="container">
       © PetHome S.A De C.V
-      <a class="grey-text text-lighten-4 right" href="Refugio/">Centro operativo</a>
+      <a class="grey-text text-lighten-4 right" href="Refugio/">Centro operativo: Refugio</a>
       </div>
     </div>
   </footer>

@@ -10,8 +10,13 @@
     <title>Document</title>
 </head>
 <body>
-
-
+	<nav class="topbar">
+		<div>
+			<div class="nav-wrapper">
+			<a href="#" class="brand-logo center">PET-HOME</a>
+			</div>
+		</div>
+	</nav> 
     <div class="linea" style="height: 10px; background-color: #424242;"></div>
     <div class="container">
       <h2> Listado de mascotas en adopción </h2>
@@ -22,6 +27,7 @@
           <th> Fecha </th>
           <th> Tipo </th>
           <th> Estatus </th>
+		  <th> Foto </th>
         </tr>
         
         {% for M in Mascotas %}
@@ -30,16 +36,23 @@
           <td> {{ M.1 }} </td>
           <td> {{ M.2 }} </td>
           <td> {{ M.3 }} </td>
-          
-          
         </tr>
       {% endfor %} 
-      
     </table>
-    
-    
-      
+    </div>
+</body>
+<footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12"></div>
+      </div>
     </div>
     
-</body>
+    <div class="footer-copyright">
+      <div class="container">
+      © PetHome S.A De C.V
+      <a class="grey-text text-lighten-4 right" href="Clinica/">Centro operativo: Clínica</a>
+      </div>
+    </div>
+  </footer>
 </html>
