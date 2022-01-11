@@ -1,4 +1,4 @@
---@autor:           Abraham Ramírez Hernández
+--@autor:           Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación:  2022-01-01
 --@Descripción:     (s-11-tr-maximo-adopciones) - Trigger para insertar en el historico de estatus mascota
 create or replace trigger tr_historico_estatus_mascota

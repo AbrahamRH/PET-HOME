@@ -1,8 +1,8 @@
---@autor:           Juárez Pérez Hugo
+--@autor:           Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación:  2022-04-01
 --@Descripción:     Script de prueba que realiza las insersiones correspondientes para registrar
 --                  una nueva revisión para una mascota en refugio.
-connect sys as sysdba
+connect sys/system as sysdba
 !cp -r ./fotos/ /tmp/
 !chmod 777 /tmp/fotos
 create or replace directory tmp_dir as '/tmp/fotos';

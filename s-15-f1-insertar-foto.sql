@@ -1,4 +1,4 @@
---@autor:           Abraham Ramírez Hernández
+--@autor:           Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación:  2021-12-29
 --@Descripción:     (s-15-f1-insertar-foto) 
 -- 									Lectura de una foto de la mascota para ser insertada en la tabla de

@@ -1,4 +1,4 @@
---@autor:           Juárez Pérez Hugo
+--@autor:           Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación:  2022-04-01
 --@Descripción:     Script que realiza las insersiones correspondientes para obtener 
 --                  todos los datos relacionados a cada centro operativo, de acuerdo con su tipo

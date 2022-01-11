@@ -1,4 +1,4 @@
---@autor:           Abraham Ramírez Hernández
+--@autor:           Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación:  2022-01-02
 --@Descripción:     (s-16-f1-insertar-foto-prueba) - Prueba para la
 -- 									función insertar_foto

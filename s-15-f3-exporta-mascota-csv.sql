@@ -1,4 +1,4 @@
---@autor:           Abraham Ramírez Hernández
+--@autor:           Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación:  2022-01-04
 --@Descripción:     (s-15-f3-exporta-mascota-csv) - funcion para exportar la 
 -- 									tabla mascota en un archivo csv existente

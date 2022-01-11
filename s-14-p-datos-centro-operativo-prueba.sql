@@ -1,4 +1,4 @@
---@autor:           Juárez Pérez Hugo
+--@autor:           Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación:  2022-04-01
 --@Descripción:     Script de prueba para el procedimiento datos-centro-operativo.sql
 

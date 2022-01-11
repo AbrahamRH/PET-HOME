@@ -1,4 +1,4 @@
---@Autor: Juárez Pérez Hugo
+--@Autor: Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación: 2022-01-01
 --@Descripción: Script de prueba para el trigger de ganador de adopción
 

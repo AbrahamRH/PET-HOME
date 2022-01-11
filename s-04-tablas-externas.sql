@@ -1,4 +1,4 @@
---@autor:           Abraham Ramírez Hernández
+--@autor:           Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación:  2021-12-27
 --@Descripción:     (s-04-tablas-externas) - creación de la tabla externa
 -- 								  para los donativos de otros lugares

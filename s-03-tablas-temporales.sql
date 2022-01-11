@@ -1,4 +1,4 @@
---@autor:           Abraham Ramírez Hernández
+--@autor:           Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación:  2021-12-27
 --@Descripción:     (s-03-tablas-temporales) - Creación de tablas temporales
 

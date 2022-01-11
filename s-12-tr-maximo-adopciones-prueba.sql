@@ -1,4 +1,4 @@
---@autor:           Juárez Pérez Hugo
+--@autor:           Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación:  2021-12-30
 --@Descripción:     (s-12-tr-maximo-adopciones) Script de prueba para
 --                  Trigger para avisar que se sobrepasaron

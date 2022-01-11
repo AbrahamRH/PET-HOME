@@ -55,4 +55,5 @@ begin
 
 end;
 /
+commit;
 show errors

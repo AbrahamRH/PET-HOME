@@ -1,4 +1,4 @@
---@Autor: Juárez Pérez Hugo
+--@Autor: Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación: 2022-01-01
 --@Descripción: Trigger que hace una ventana de 15 dias en la que los clientes pueden 
 --              solicitar la adopción de una mascota de acuerdo a partir del primer cliente

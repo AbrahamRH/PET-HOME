@@ -1,4 +1,4 @@
---@autor:           Abraham Ramírez Hernández
+--@autor:           Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación:  2021-12-29
 --@Descripción:     (s-11-tr-maximo-adopciones) - Trigger para avisar que se sobrepasaron
 -- 									el máximo de adopciones por cliente

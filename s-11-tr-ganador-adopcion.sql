@@ -1,4 +1,4 @@
---@Autor: Juárez Pérez Hugo
+--@Autor: Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación: 2022-01-01
 --@Descripción: Trigger actualiza el dueño de la mascota,
 --              Al momento de que un cliente gane el proceso de adopción.

@@ -1,4 +1,4 @@
---@autor:           Abraham Ramírez Hernández
+--@autor:           Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación:  2021-12-30
 --@Descripción:     (s-15-f2-ingresos-mensuales) - Funcion para la obtención 
 -- 									de los ingresos mensuales de las donaciones (tabla donaciones y donaciones_ext)

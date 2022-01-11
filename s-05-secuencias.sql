@@ -1,4 +1,4 @@
---@autor:           Abraham Ramírez Hernández
+--@autor:           Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación:  2021-12-28
 --@Descripción:     (s-05-secuencias) - Script creado para la creacion de secuencias
 

@@ -1,6 +1,7 @@
---@autor:           Abraham Ramírez Hernández
+--@autor:           Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación:  2022-01-03
---@Descripción:     (s-16-f2-ingresos-mensuales-prueba) - 
+--@Descripción:     (s-16-f2-ingresos-mensuales-prueba) - Prueba para la
+--					la funcion de ingresos mensuales
 
 prompt ==========================================================
 prompt Prueba de la función del script s-16-f1-ingresos-mensuales

@@ -1,4 +1,4 @@
---@autor:           Juárez Pérez Hugo
+--@autor:           Abraham Ramírez Hernández, Juárez Pérez Hugo
 --@Fecha creación:  2022-07-01
 --@Descripción:     Script que realiza las insersiones correspondientes para registrar
 --                  una nueva revisión para una mascota en refugio, para poder utilizarse en web.
