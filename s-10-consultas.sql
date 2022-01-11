@@ -54,6 +54,8 @@ where es_oficina = 1;
 select nombre, direccion, lema, telefono_emergencia, responsable_nombre
 from centros_operativos;
 
+-- Se desea obtener el id, nombre, fecha_ingreso, tipo, nivel de cuidado
+-- ,estatus y origen de todas las mascotas registradas
 select m.mascota_id, m.nombre, m.fecha_ingreso,
   t.nombre_tipo, t.nivel_cuidado, e.descripcion as estatus,
   o.descripcion as origen
@@ -62,6 +64,9 @@ where m.tipo_mascota_id = t.tipo_mascota_id
 and m.estatus_mascota_id = e.estatus_mascota_id
 and o.origen_id = m.origen_id;
 
+-- De las mascotas que han tenido citas de revisión, se desea obtener 
+-- El nombre de la mascota, cuando fue su consulta,  el diagnóstico, la foto 
+-- que el veterinario agrego y su nombre del veterinario
 select m.nombre mascota , rm.fecha_revision, rm.diagnostico,
   rm.foto_mascota, e.nombre empleado
 from mascota m
@@ -69,7 +74,26 @@ join revision_mascota rm
   on m.mascota_id = rm.mascota_id
 join empleado e
   on e.empleado_id = rm.empleado_id;
-  
+
+-- Se desea consultar el nombre y grado académico del empleado
+-- con mayor sueldo de cada centro operativo
+select e.empleado_id,c.centro_operativo_id,
+  e.nombre, g.titulo, e.sueldo, e.fecha_ingreso
+from centro_operativo c
+join (
+  select c.centro_operativo_id, max(e.sueldo) mayor_sueldo
+  from centro_operativo c
+  join empleado e 
+    on e.centro_operativo_id = c.centro_operativo_id
+  group by c.centro_operativo_id
+) q1
+  on c.centro_operativo_id = q1.centro_operativo_id
+join empleado e
+   on e.centro_operativo_id = q1.centro_operativo_id
+join grado_academico g
+  on g.empleado_id = e.empleado_id
+where q1.mayor_sueldo = e.sueldo
+order by c.centro_operativo_id asc;
 
 
 
