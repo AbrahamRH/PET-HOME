@@ -12,10 +12,10 @@ declare
   begin
 
   --Llamamos al procedimiento 
-  sp_asignar_padres_mascota(c_padre_id, c_madre_id, c_hijo_id);
+  sp_asignar_padres_mascota(c_padre_id, c_madre_id, c_hijo_id,3);
   
  ---commit al final de las operaciones, todo se ejecutó correctamente.
-  dbms_output.put_line('OK, No hubo errores');
+  dbms_output.put_line('OK, No hubo errores, se actualizaron datos de la mascota: '|| c_hijo_id || ' correctamente');
   commit;
  
   exception 
