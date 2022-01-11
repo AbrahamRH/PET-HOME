@@ -4,10 +4,11 @@
 --                  Trigger del historico de estatus mascota
 set serveroutput on
 
+--Generamos datos de prueba para el historico por medio del trigger
 update mascota
 set estatus_mascota_id = 5
 where mascota_id < 10;
-
+commit;
 
 declare
   v_ultimo_historico_id number;
@@ -18,11 +19,16 @@ declare
 
 
 begin
-  v_ultimo_historico_id := historico_estatus_mascota_seq.currval;
+  
+  update mascota
+  set estatus_mascota_id = 3
+  where mascota_id = 1;
 
   select estatus_mascota_id into v_mascota_status 
   from mascota
   where mascota_id = 1;
+
+  v_ultimo_historico_id := historico_estatus_mascota_seq.currval;
 
   select estatus_mascota_id into v_id_en_tabla 
   from historico_status_mascota

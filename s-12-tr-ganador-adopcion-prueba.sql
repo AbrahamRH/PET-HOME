@@ -3,21 +3,23 @@
 --@Descripción: Script de prueba para el trigger de ganador de adopción
 
 
+
 set serveroutput on
 declare
   v_mascota_id number;
   v_count number;
-  c_mascota_id number := 125;
+  c_mascota_id number := 5;
+  v_adopcion_id number := 100;
 begin
 
 
   update adopcion
   set es_ganador = 1
-  where adopcion_id = c_mascota_id;
+  where adopcion_id = v_adopcion_id;
 
   select mascota_id into v_mascota_id
   from adopcion
-  where adopcion_id = 125;
+  where adopcion_id = v_adopcion_id;
 
   select count(cliente_id) into v_count
   from adopcion
@@ -29,9 +31,10 @@ begin
 
   else 
     dbms_output.put_line('OK! Prueba concluida, solo hubo un ganador para la mascota con ID: ' || v_mascota_id );
-
+    
 
   end if;
 end;
 /
+commit;
 show errors
