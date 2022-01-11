@@ -18,7 +18,7 @@
 	-	~~Poblar los centros operativos~~
 	-	~~Cambiar valores booleanos por el apropiado para oracle~~
 	-	~~Corregir formato para que las fechas se inserten correctamente~~
-	- Poblar tablas temporales
+	- ~~Poblar tablas temporales~~
 
 
 - [x] s-10-consultas
@@ -63,11 +63,11 @@
 - [x] s-19-cur
 	-	~~emplear cursores, en cualquier otro lado, o en este mismo script particular~~
 	
-- [ ] Errores modelo
+- [x] Errores modelo
 	- Mascota
-		- Causa muerte
-		- fecha_nacimiento
+		- ~~Causa muerte~~
+		- ~~fecha_nacimiento~~
 	- Clinica
-		- Hora inicio y fin deben ser varchar
+		- ~~Hora inicio y fin deben ser varchar~~
 	- Empleado
-		- cambiar a 'sueldo' en el modelo
+		- ~~cambiar a 'sueldo' en el modelo~~
