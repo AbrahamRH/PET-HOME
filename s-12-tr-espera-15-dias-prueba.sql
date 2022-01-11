@@ -5,17 +5,21 @@
 set serveroutput on
 
 declare
-  c_mascota_id number := 5;
+  c_mascota_id number := 51; --ESTA MASCOTA NO EXISTE
 begin
+  insert into adopcion(adopcion_id, fecha_adopcion, es_ganador, cliente_id, mascota_id)
+  values(adopcion_seq.nextval, sysdate, 0, 1, 4);
 
   insert into adopcion(adopcion_id, fecha_adopcion, es_ganador, cliente_id, mascota_id)
-  values(adopcion_seq.nextval, sysdate, 0, 1, c_mascota_id);
+  values(adopcion_seq.nextval, sysdate +7, 0, 2, 4);
 
   insert into adopcion(adopcion_id, fecha_adopcion, es_ganador, cliente_id, mascota_id)
-  values(adopcion_seq.nextval, sysdate +7, 0, 2, c_mascota_id);
+  values(adopcion_seq.nextval, sysdate +7, 0, 3, 4);
 
   insert into adopcion(adopcion_id, fecha_adopcion, es_ganador, cliente_id, mascota_id)
-  values(adopcion_seq.nextval, sysdate +16, 0, 3, c_mascota_id);
+  values(adopcion_seq.nextval, sysdate +16, 0, 4, 4);
+
+
 
 exception
   when others then 
@@ -27,5 +31,5 @@ end;
 show errors
 
 select adopcion_id, fecha_adopcion, cliente_id, mascota_id from adopcion;
-
+commit;
 

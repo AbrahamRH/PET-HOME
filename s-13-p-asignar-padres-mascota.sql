@@ -9,8 +9,12 @@ create or replace procedure sp_asignar_padres_mascota
 
 begin
 
-  insert into mascota (mascota_madre_id, mascota_padre_id, centro_nacimiento_id) 
-  values( p_madre_id, p_padre_id, p_centro_nacimiento_id );
+  update mascota
+  set mascota_madre_id = p_madre_id,
+      mascota_padre_id =  p_padre_id,
+      centro_nacimiento_id = p_centro_nacimiento_id
+  where mascota_id = p_hijo_id;
+
 
 end;
 /

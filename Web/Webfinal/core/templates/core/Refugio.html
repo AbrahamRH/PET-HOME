@@ -35,10 +35,15 @@
         
         {% for M in Mascotas %}
         <tr>
-          <td> {{ M.0 }} </td>
-          <td> {{ M.1 }} </td>
-          <td> {{ M.2 }} </td>
-          <td> {{ M.3 }} </td>
+          <td> {{ M.data.0 }} </td>
+          <td> {{ M.data.1 }} </td>
+          <td> {{ M.data.2 }} </td>
+          <td> {{ M.data.3 }} </td>
+          <td> 
+            {%if M.foto %}
+            <img src="data:foto/jpg;base64, {{M.foto}}" width="250" height="250">
+            {%endif%}
+          </td>
         </tr>
       {% endfor %} 
     </table>
@@ -54,7 +59,7 @@
     <div class="footer-copyright">
       <div class="container">
       © PetHome S.A De C.V
-      <a class="grey-text text-lighten-4 right" href="Clinica/">Centro operativo: Clínica</a>
+      <a class="grey-text text-lighten-4 right" href="/Clinica/">Centro operativo: Clínica</a>
       </div>
     </div>
   </footer>

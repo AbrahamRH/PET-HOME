@@ -2,7 +2,13 @@
 --@Fecha creación:  2022-04-01
 --@Descripción:     Script de prueba que realiza las insersiones correspondientes para registrar
 --                  una nueva revisión para una mascota en refugio.
+connect sys as sysdba
+!cp -r ./fotos/ /tmp/
+!chmod 777 /tmp/fotos
+create or replace directory tmp_dir as '/tmp/fotos';
+grant read, write on directory tmp_dir to rj_proy_admin;
 
+connect rj_proy_admin/ rj_admin;
 set serveroutput on
 declare
   c_filename varchar2(7) := 'ket.jpg';

@@ -12,11 +12,24 @@ def home(request):
 
 def Refugio(request):
 
+    mascota_en_adopcion = en_adopcion()
+
+
+    lista_mascotas = []
+
+    for i in mascota_en_adopcion:
+        info = {
+            'data': i,
+            'foto': str(base64.b64encode(i[4].read() ), 'utf-8')
+        }
+        lista_mascotas.append(info)
+
     data = {
-        'Mascotas' : en_adopcion(),
+        'Mascotas' : lista_mascotas
+        
     }
 
-    print(data)
+    print(mascota_en_adopcion)
     return render(request, 'core/Refugio.html', data )
 
 def Mascota(request):
@@ -54,7 +67,7 @@ def Mascota(request):
         if salida == 1 :
             data['mensaje'] = 'Agregado Correctamente!'
         else:
-            data['mensaje'] = 'Hubo un error y se ha guardado el registro...'
+            data['mensaje'] = 'Hubo un error y NO se ha guardado el registro...'
 
 
 
@@ -98,9 +111,22 @@ def nueva_revision(mascota, veterinario, diagnostico, foto):
 
     salida = cursor.var(cx_Oracle.NUMBER)
 
-    cursor.callproc("SP_NUEVA_REVISION_MASCOTA_WEB",[mascota,veterinario,diagnostico,foto,salida])
-
-    return salida.getvalue()
+    if not mascota.isdigit():
+        salida = 0
+        return salida
+    elif not veterinario.isdigit():
+        salida = 0
+        return salida
+    elif len(diagnostico) > 200 :
+        salida = 0
+        return salida
+    elif foto is  None:
+        salida = 0
+        return salida
+    else:   
+        cursor.callproc("SP_NUEVA_REVISION_MASCOTA_WEB",[mascota,veterinario,diagnostico,foto,salida])
+        return salida.getvalue()
+    
 
 #Métodos para el refugio
 def en_adopcion():
