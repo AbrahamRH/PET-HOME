@@ -7,16 +7,16 @@
 -- Vista creada para ver que mascotas pueden solicitar para adopcion
 create or replace view v_mascotas_en_adopcion
 (
-	nombre, fecha_nacimiento, nombre_tipo, estatus
+	nombre, fecha_nacimiento, nombre_tipo, estatus, foto
 ) as select m.nombre, m.fecha_nacimiento, t.nombre_tipo, em.descripcion
---  ,rm.foto_mascota
+  ,rm.foto_mascota
 from mascota m
 join tipo_mascota t 
 	on m.tipo_mascota_id = t.tipo_mascota_id
 join estatus_mascota em 
 	on em.estatus_mascota_id = m.estatus_mascota_id
---join revision_mascota rm
---  on rm.mascota_id = m.mascota_id
+join revision_mascota rm
+  on rm.mascota_id = m.mascota_id
 where em.descripcion in ('DISPONIBLE_PARA_ADOPCIÓN', 'SOLICITADA_PARA_ADOPCIÓN')
 order by em.descripcion;
 

@@ -239,8 +239,6 @@ insert into mascota (mascota_id, nombre, folio, fecha_ingreso, fecha_estatus, fe
 insert into mascota (mascota_id, nombre, folio, fecha_ingreso, fecha_estatus, fecha_nacimiento, causa_muerte, estatus_mascota_id, tipo_mascota_id, centro_operativo_id, origen_id, cliente_id, donador_id) values (50, 'Yóu', 'I25016UB', to_date('08/02/2020','dd/mm/yyyy'), to_date('21/11/2021','dd/mm/yyyy'), to_date('30/12/2017','dd/mm/yyyy'), null, 5, 4, 4, 1, 14, null);
 
 
---Revision Mascoa
-
 
 
 
@@ -329,6 +327,63 @@ insert into GRADO_ACADEMICO (grado_academico_id, titulo, fecha_titulacion, cedul
 insert into GRADO_ACADEMICO (grado_academico_id, titulo, fecha_titulacion, cedula_profesional, empleado_id) values (38, 'Licenciatura en Contaduria', to_date('06/09/2021','dd/mm/yyyy'), 'OINU511038APXZAG20', 38);
 insert into GRADO_ACADEMICO (grado_academico_id, titulo, fecha_titulacion, cedula_profesional, empleado_id) values (39, 'Licenciatura en Veterinaria', to_date('21/07/2021','dd/mm/yyyy'), 'FBXR672107DMXNAU38', 39);
 insert into GRADO_ACADEMICO (grado_academico_id, titulo, fecha_titulacion, cedula_profesional, empleado_id) values (40, 'Licenciatura en Administración', to_date('13/11/2021','dd/mm/yyyy'), 'UKTW778072XYJNEB77', 40);
+
+--Revision Mascoa
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (1, to_date('06/08/2021','dd/mm/yyyy'), 'Presenta Dolor en las patas',  27, 1);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (2, to_date('20/05/2021','dd/mm/yyyy'), 'Muy Enfermo',  3, 2);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (3, to_date('10/06/2021','dd/mm/yyyy'), 'Dentadura pobre',  10, 3);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (4, to_date('10/12/2021','dd/mm/yyyy'), 'Dentadura pobre',  10, 4);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (5, to_date('01/10/2021','dd/mm/yyyy'), 'Muy Enfermo',  12, 5);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (6, to_date('03/02/2021','dd/mm/yyyy'), 'Desnutrido',  17, 6);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (7, to_date('07/03/2021','dd/mm/yyyy'), 'En buenas condiciones',  3, 7);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (8, to_date('03/11/2021','dd/mm/yyyy'), 'Muy Enfermo',  1, 8);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (9, to_date('12/04/2021','dd/mm/yyyy'), 'Dentadura pobre',  1, 9);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (10, to_date('17/04/2021','dd/mm/yyyy'), 'Dentadura pobre',  1, 10);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (11, to_date('07/11/2021','dd/mm/yyyy'), 'Desnutrido',  27, 11);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (12, to_date('16/02/2021','dd/mm/yyyy'), 'Muy Enfermo',  21, 12);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (13, to_date('04/11/2021','dd/mm/yyyy'), 'Presenta Sintomas de enfermedad leve',  14, 13);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (14, to_date('17/07/2021','dd/mm/yyyy'), 'Desnutrido',  4, 14);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (15, to_date('07/10/2021','dd/mm/yyyy'), 'En buenas condiciones',  14, 15);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (16, to_date('18/01/2021','dd/mm/yyyy'), 'Presenta Dolor en las patas',  21, 16);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (17, to_date('11/04/2021','dd/mm/yyyy'), 'Dentadura pobre',  17, 17);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (18, to_date('07/04/2021','dd/mm/yyyy'), 'Sobrepeso',  12, 18);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (19, to_date('29/07/2021','dd/mm/yyyy'), 'Muy Enfermo',  1, 19);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (20, to_date('31/03/2021','dd/mm/yyyy'), 'Presenta Sintomas de enfermedad leve',  4, 20);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (21, to_date('30/09/2021','dd/mm/yyyy'), 'Muy Enfermo',  14, 21);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (22, to_date('17/12/2021','dd/mm/yyyy'), 'Desnutrido',  14, 22);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (23, to_date('18/03/2021','dd/mm/yyyy'), 'Dentadura pobre',  17, 23);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (24, to_date('23/07/2021','dd/mm/yyyy'), 'En buenas condiciones',  27, 24);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (25, to_date('12/03/2021','dd/mm/yyyy'), 'Dentadura pobre',  10, 25);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (26, to_date('04/03/2021','dd/mm/yyyy'), 'En buenas condiciones',  21, 26);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (27, to_date('20/12/2021','dd/mm/yyyy'), 'Presenta Dolor en las patas',  4, 27);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (28, to_date('09/06/2021','dd/mm/yyyy'), 'Dentadura pobre',  14, 28);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (29, to_date('01/09/2021','dd/mm/yyyy'), 'Presenta Dolor en las patas',  10, 29);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (30, to_date('23/09/2021','dd/mm/yyyy'), 'En buenas condiciones',  19, 30);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (31, to_date('03/12/2021','dd/mm/yyyy'), 'En buenas condiciones',  26, 31);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (32, to_date('11/06/2021','dd/mm/yyyy'), 'Presenta Dolor en las patas',  12, 32);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (33, to_date('26/11/2021','dd/mm/yyyy'), 'Presenta Sintomas de enfermedad leve',  19, 33);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (34, to_date('23/11/2021','dd/mm/yyyy'), 'Dentadura pobre',  4, 34);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (35, to_date('22/08/2021','dd/mm/yyyy'), 'Sobrepeso',  10, 35);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (36, to_date('23/07/2021','dd/mm/yyyy'), 'Desnutrido',  1, 36);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (37, to_date('29/04/2021','dd/mm/yyyy'), 'Falta Atencion',  27, 37);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (38, to_date('21/06/2021','dd/mm/yyyy'), 'Sobrepeso',  19, 38);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (39, to_date('13/05/2021','dd/mm/yyyy'), 'En buenas condiciones',  21, 39);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (40, to_date('13/10/2021','dd/mm/yyyy'), 'Sobrepeso',  17, 40);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (41, to_date('06/12/2021','dd/mm/yyyy'), 'En buenas condiciones',  19, 41);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (42, to_date('25/01/2021','dd/mm/yyyy'), 'En buenas condiciones',  3, 42);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (43, to_date('26/12/2021','dd/mm/yyyy'), 'Muy Enfermo',  17, 43);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (44, to_date('20/09/2021','dd/mm/yyyy'), 'Dentadura pobre',  10, 44);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (45, to_date('27/11/2021','dd/mm/yyyy'), 'Muy Enfermo',  4, 45);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (46, to_date('12/07/2021','dd/mm/yyyy'), 'Sobrepeso',  26, 46);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (47, to_date('19/04/2021','dd/mm/yyyy'), 'Desnutrido',  3, 47);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (48, to_date('09/07/2021','dd/mm/yyyy'), 'Desnutrido',  26, 48);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (49, to_date('01/02/2021','dd/mm/yyyy'), 'Presenta Dolor en las patas',  26, 49);
+insert into revision_mascota (revision_mascota_id, fecha_revision, diagnostico,  empleado_id, mascota_id) values (50, to_date('20/03/2021','dd/mm/yyyy'), 'Presenta Dolor en las patas',  3, 50);
+
+
+
+
+
 
 prompt OK! Datos cargados
 commit;

@@ -2,10 +2,10 @@
 --@Fecha creación:  2021-12-31
 --@Descripción:     Script que asigna una imagen al campo BLOB de mascota
 
+connect sys/system as sysdba
 prompt Configurar Directorio de imaganes
 !cp -r ./fotos/ /tmp/
 !chmod 777 /tmp/fotos
-connect sys/system as sysdba
 create or replace directory fotos_dir as '/tmp/fotos';
 grant read, write on directory fotos_dir to rj_proy_admin;
 
@@ -30,7 +30,7 @@ begin
   dbms_output.put_line('Cargando foto para ' || v_nombre_archivo);
 
   --Corroborando que existan los archivos:
-  v_bfile := bfilename('TMP_DIR', v_nombre_archivo);
+  v_bfile := bfilename('FOTOS_DIR', v_nombre_archivo);
   
   if dbms_lob.fileexists(v_bfile) = 0 THEN
     raise_application_error(-20001, 'El archivo ' || v_nombre_archivo || ' no existe.');

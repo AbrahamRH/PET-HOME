@@ -9,7 +9,7 @@ declare
   v_foto blob;
 begin 
 
-  agregar_imagen_mascota(8,10);
+  agregar_imagen_mascota(1,49);
 
   select foto_mascota
   into v_foto
